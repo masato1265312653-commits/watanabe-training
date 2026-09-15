@@ -24,7 +24,8 @@ type FormState = {
 export function ContactForm({ closedDates = [] }: { closedDates?: string[] }) {
   const searchParams = useSearchParams();
   const presetSlug = searchParams.get("service");
-  const presetValid = !!presetSlug && !!getServiceBySlug(presetSlug);
+  const presetService = presetSlug ? getServiceBySlug(presetSlug) : undefined;
+  const presetValid = !!presetService && !presetService.comingSoon;
 
   const [form, setForm] = useState<FormState>({
     inquiryType: presetValid ? "reservation" : "general",
@@ -141,8 +142,9 @@ export function ContactForm({ closedDates = [] }: { closedDates?: string[] }) {
           >
             <option value="">選択してください</option>
             {services.map((service) => (
-              <option key={service.slug} value={service.slug}>
+              <option key={service.slug} value={service.slug} disabled={service.comingSoon}>
                 {service.name}
+                {service.comingSoon ? "(準備中)" : ""}
               </option>
             ))}
           </select>

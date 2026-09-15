@@ -7,7 +7,7 @@ import { CtaBanner } from "@/components/layout/CtaBanner";
 export const metadata: Metadata = {
   title: "料金 | 渡邊 将人 コンディショニング",
   description:
-    "整体施術・鍼灸施術・パーソナルトレーニング・スポーツチームサポートの料金をご紹介します。",
+    "整体施術・鍼灸施術(準備中)・パーソナルトレーニング・スポーツチームサポートの料金をご紹介します。",
 };
 
 export default function ServicesPage() {

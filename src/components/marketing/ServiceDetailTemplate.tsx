@@ -25,9 +25,16 @@ export function ServiceDetailTemplate({ service }: { service: Service }) {
               <Icon size={28} />
             </div>
             <div className="flex flex-col gap-3">
-              <span className="text-sm font-semibold text-teal-700">
-                {service.category === "individual" ? "個人向けサービス" : "チーム・団体向けサービス"}
-              </span>
+              <div className="flex items-center gap-2">
+                <span className="text-sm font-semibold text-teal-700">
+                  {service.category === "individual" ? "個人向けサービス" : "チーム・団体向けサービス"}
+                </span>
+                {service.comingSoon && (
+                  <span className="rounded-full bg-slate-100 px-2.5 py-0.5 text-xs font-semibold text-slate-500">
+                    準備中
+                  </span>
+                )}
+              </div>
               <h1 className="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
                 {service.name}
               </h1>
@@ -46,9 +53,15 @@ export function ServiceDetailTemplate({ service }: { service: Service }) {
               </span>
             </div>
             <div>
-              <Button href={`/contact?service=${service.slug}`} size="lg">
-                お問い合わせ・予約
-              </Button>
+              {service.comingSoon ? (
+                <Button size="lg" disabled>
+                  準備中(近日公開)
+                </Button>
+              ) : (
+                <Button href={`/contact?service=${service.slug}`} size="lg">
+                  お問い合わせ・予約
+                </Button>
+              )}
             </div>
           </div>
           {service.image && (
@@ -97,28 +110,36 @@ export function ServiceDetailTemplate({ service }: { service: Service }) {
       <section className="py-16">
         <Container className="flex flex-col gap-6">
           <SectionHeading title="料金" />
-          <div className="overflow-hidden rounded-2xl border border-slate-200">
-            <table className="w-full text-left text-sm">
-              <thead className="bg-slate-50 text-slate-500">
-                <tr>
-                  <th className="px-6 py-3 font-medium">メニュー</th>
-                  <th className="px-6 py-3 font-medium">料金</th>
-                </tr>
-              </thead>
-              <tbody>
-                {service.priceOptions.map((option) => (
-                  <tr key={option.label} className="border-t border-slate-100">
-                    <td className="px-6 py-4 text-slate-700">{option.label}</td>
-                    <td className="px-6 py-4 font-semibold text-slate-900">
-                      {option.price > 0 ? `${option.price.toLocaleString()}円` : "要相談"}
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-          {service.priceNote && (
-            <p className="text-sm text-slate-500">※ {service.priceNote}</p>
+          {service.comingSoon ? (
+            <div className="rounded-2xl border border-slate-200 bg-slate-50 px-6 py-8 text-center text-sm text-slate-500">
+              現在準備中のため、料金は近日公開予定です。
+            </div>
+          ) : (
+            <>
+              <div className="overflow-hidden rounded-2xl border border-slate-200">
+                <table className="w-full text-left text-sm">
+                  <thead className="bg-slate-50 text-slate-500">
+                    <tr>
+                      <th className="px-6 py-3 font-medium">メニュー</th>
+                      <th className="px-6 py-3 font-medium">料金</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {service.priceOptions.map((option) => (
+                      <tr key={option.label} className="border-t border-slate-100">
+                        <td className="px-6 py-4 text-slate-700">{option.label}</td>
+                        <td className="px-6 py-4 font-semibold text-slate-900">
+                          {option.price > 0 ? `${option.price.toLocaleString()}円` : "要相談"}
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+              {service.priceNote && (
+                <p className="text-sm text-slate-500">※ {service.priceNote}</p>
+              )}
+            </>
           )}
         </Container>
       </section>

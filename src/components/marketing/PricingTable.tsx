@@ -30,8 +30,13 @@ export function PricingTable() {
                   <Icon size={20} />
                 </div>
                 <div>
-                  <h3 className="text-base font-bold text-slate-900">
+                  <h3 className="flex items-center gap-2 text-base font-bold text-slate-900">
                     {service.name}
+                    {service.comingSoon && (
+                      <span className="rounded-full bg-slate-100 px-2 py-0.5 text-[11px] font-semibold text-slate-500">
+                        準備中
+                      </span>
+                    )}
                   </h3>
                   <p className="text-xs text-slate-500">{service.tagline}</p>
                 </div>
@@ -56,9 +61,15 @@ export function PricingTable() {
                 <p className="text-xs text-slate-500">※ {service.priceNote}</p>
               )}
 
-              <Button href={`/contact?service=${service.slug}`} className="w-full">
-                お問い合わせ・予約
-              </Button>
+              {service.comingSoon ? (
+                <Button className="w-full" disabled>
+                  準備中(近日公開)
+                </Button>
+              ) : (
+                <Button href={`/contact?service=${service.slug}`} className="w-full">
+                  お問い合わせ・予約
+                </Button>
+              )}
             </div>
           </div>
         );

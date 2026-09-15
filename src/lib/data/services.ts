@@ -65,6 +65,7 @@ export const services: Service[] = [
     name: "鍼灸施術",
     shortName: "鍼灸",
     category: "individual",
+    comingSoon: true,
     tagline: "メンテナンスから美容鍼まで幅広く対応",
     description:
       "国家資格を持つ施術者が、鍼と灸を用いて身体の不調にアプローチします。慢性的な痛みや自律神経の乱れ、スポーツによる怪我のケアまで幅広く対応します。",

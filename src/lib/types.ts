@@ -20,4 +20,5 @@ export type Service = {
   priceNote?: string;
   benefits: string[];
   targets: string[];
+  comingSoon?: boolean;
 };

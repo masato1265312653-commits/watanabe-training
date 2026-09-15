@@ -31,7 +31,7 @@ export function Hero() {
           <span className="text-teal-700">専属トレーナー</span>帯同で。
         </h1>
         <p className="max-w-xl text-base leading-relaxed text-slate-600 sm:text-lg">
-          スポーツチームサポート(トレーナー帯同)をメインに、整体施術・鍼灸施術・パーソナルトレーニングまで渡邊 将人が一貫して提供します。年齢もレベルも問わず、あなたに合わせたコンディショニングを。
+          スポーツチームサポート(トレーナー帯同)をメインに、整体施術・鍼灸施術(準備中)・パーソナルトレーニングまで渡邊 将人が一貫して提供します。年齢もレベルも問わず、あなたに合わせたコンディショニングを。
         </p>
 
         <ul className="flex flex-col gap-2.5">

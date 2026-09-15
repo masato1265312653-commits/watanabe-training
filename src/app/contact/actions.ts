@@ -29,8 +29,17 @@ export async function submitInquiry(input: SubmitInquiryInput) {
     return { success: false as const, message: "入力内容をご確認ください。" };
   }
 
-  if (input.serviceSlug && !getServiceBySlug(input.serviceSlug)) {
-    return { success: false as const, message: "入力内容をご確認ください。" };
+  if (input.serviceSlug) {
+    const service = getServiceBySlug(input.serviceSlug);
+    if (!service) {
+      return { success: false as const, message: "入力内容をご確認ください。" };
+    }
+    if (service.comingSoon) {
+      return {
+        success: false as const,
+        message: "このメニューは現在準備中のため、お申し込みいただけません。",
+      };
+    }
   }
 
   const needsDate = input.inquiryType === "reservation" && input.serviceSlug !== "team-support";
@@ -81,8 +90,9 @@ export async function submitInquiry(input: SubmitInquiryInput) {
 
   try {
     await Promise.all([sendCustomerConfirmation(input), sendOwnerNotification(input)]);
-  } catch {
+  } catch (err) {
     // The inquiry is already saved; email delivery issues shouldn't block the user.
+    console.error("Failed to send inquiry notification email:", err);
   }
 
   return { success: true as const };

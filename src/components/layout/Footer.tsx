@@ -23,7 +23,7 @@ export function Footer() {
             <span className="text-sm font-bold text-slate-900">渡邊 将人</span>
           </div>
           <p className="text-sm leading-relaxed text-slate-500">
-            神奈川県・東京都を中心に、整体・鍼灸・パーソナルトレーニング・スポーツチームサポートを提供する個人事業主です。
+            神奈川県・東京都を中心に、整体・鍼灸(準備中)・パーソナルトレーニング・スポーツチームサポートを提供する個人事業主です。
           </p>
         </div>
 
@@ -37,6 +37,7 @@ export function Footer() {
                   className="text-sm text-slate-500 hover:text-teal-700"
                 >
                   {s.name}
+                  {s.comingSoon && <span className="ml-1 text-xs text-slate-400">(準備中)</span>}
                 </Link>
               </li>
             ))}
