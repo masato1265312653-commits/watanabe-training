@@ -3,13 +3,24 @@ import { Mail, Phone, MapPin } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { ContactForm } from "@/components/contact/ContactForm";
+import { createAdminClient } from "@/lib/supabase/admin";
 
 export const metadata: Metadata = {
   title: "お問い合わせ・予約 | 渡邊 将人 コンディショニング",
   description: "ご予約やサービス内容に関するご質問など、こちらのフォームからお気軽にお問い合わせください。",
 };
 
-export default function ContactPage() {
+export default async function ContactPage() {
+  const supabase = createAdminClient();
+  const today = new Date().toISOString().slice(0, 10);
+  const { data } = await supabase
+    .from("closed_dates")
+    .select("date")
+    .gte("date", today)
+    .order("date", { ascending: true });
+
+  const closedDates = (data ?? []).map((d) => d.date as string);
+
   return (
     <div className="py-16">
       <Container className="grid gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.4fr)]">
@@ -37,13 +48,10 @@ export default function ContactPage() {
               対応エリア: 神奈川県・東京都
             </li>
           </ul>
-          <p className="text-xs text-slate-400">
-            ※ 現在はフロントエンドのデモ画面です。送信内容の自動転送・メール通知はバックエンド実装後に対応します。
-          </p>
         </div>
 
         <div className="rounded-3xl border border-slate-200 bg-white p-6 sm:p-10">
-          <ContactForm />
+          <ContactForm closedDates={closedDates} />
         </div>
       </Container>
     </div>

@@ -1,19 +1,25 @@
 import type { Metadata } from "next";
-import { Geist } from "next/font/google";
-import { Noto_Sans_JP } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 
-const geistSans = Geist({
+const geistSans = localFont({
+  src: "./fonts/geist-latin.woff2",
   variable: "--font-geist-sans",
-  subsets: ["latin"],
+  weight: "100 900",
+  display: "swap",
 });
 
-const notoSansJP = Noto_Sans_JP({
+const notoSansJP = localFont({
+  src: [
+    { path: "./fonts/noto-sans-jp-latin.woff2", weight: "400" },
+    { path: "./fonts/noto-sans-jp-latin.woff2", weight: "500" },
+    { path: "./fonts/noto-sans-jp-latin.woff2", weight: "700" },
+    { path: "./fonts/noto-sans-jp-latin.woff2", weight: "900" },
+  ],
   variable: "--font-noto-sans-jp",
-  subsets: ["latin"],
-  weight: ["400", "500", "700", "900"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
