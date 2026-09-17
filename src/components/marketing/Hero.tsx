@@ -27,11 +27,18 @@ export function Hero() {
             神奈川県・東京都 対応
           </span>
           <h1 className="max-w-2xl text-3xl font-bold leading-tight tracking-tight text-slate-900 sm:text-5xl">
-            チームの怪我予防と
-            <br className="hidden sm:block" />
-            コンディショニングを、
-            <br />
-            <span className="text-teal-700">専属トレーナー</span>帯同で。
+            <span className="text-2xl sm:hidden">
+              チームの怪我予防とコンディショ
+              <br />
+              ニングを、<span className="text-teal-700">専属トレーナー</span>帯同で。
+            </span>
+            <span className="hidden sm:inline">
+              チームの怪我予防と
+              <br />
+              コンディショニングを、
+              <br />
+              <span className="text-teal-700">専属トレーナー</span>帯同で。
+            </span>
           </h1>
           <p className="max-w-xl text-base leading-relaxed text-slate-600 sm:text-lg">
             スポーツチームサポート(トレーナー帯同)をメインに、整体施術・鍼灸施術(準備中)・パーソナルトレーニングまで渡邊 将人が一貫して提供します。年齢もレベルも問わず、あなたに合わせたコンディショニングを。
@@ -53,7 +60,7 @@ export function Hero() {
           </div>
         </div>
 
-        <div className="relative aspect-[2/3] w-64 shrink-0 overflow-hidden shadow-lg sm:w-80 lg:w-96">
+        <div className="relative order-first aspect-[2/3] w-64 shrink-0 overflow-hidden shadow-xl lg:order-none sm:w-80 lg:w-96">
           <Image
             src="/images/trainer-portrait.jpg"
             alt={profile.name}

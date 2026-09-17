@@ -5,13 +5,13 @@ import { SERVICE_ICONS } from "./service-icons";
 
 export function PricingTable() {
   return (
-    <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+    <div className="-mx-6 flex snap-x snap-mandatory gap-6 overflow-x-auto px-6 pb-2 sm:mx-0 sm:grid sm:snap-none sm:grid-cols-2 sm:overflow-visible sm:px-0 sm:pb-0 lg:grid-cols-4">
       {services.map((service) => {
         const Icon = SERVICE_ICONS[service.icon];
         return (
           <div
             key={service.slug}
-            className="flex flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white"
+            className="flex w-[80%] shrink-0 snap-start flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white sm:w-auto sm:shrink"
           >
             {service.image && (
               <div className="relative aspect-[4/3] w-full bg-slate-50">
