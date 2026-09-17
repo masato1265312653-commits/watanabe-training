@@ -102,23 +102,3 @@ export async function updateInquiryStatus(id: string, status: "new" | "contacted
   const supabase = createAdminClient();
   await supabase.from("inquiries").update({ status }).eq("id", id);
 }
-
-export async function addClosedDate(date: string, reason: string) {
-  if (!date) {
-    return { success: false as const, message: "日付を選択してください" };
-  }
-  const supabase = createAdminClient();
-  const { error } = await supabase
-    .from("closed_dates")
-    .upsert({ date, reason: reason.trim() || null });
-
-  if (error) {
-    return { success: false as const, message: "追加に失敗しました" };
-  }
-  return { success: true as const };
-}
-
-export async function removeClosedDate(date: string) {
-  const supabase = createAdminClient();
-  await supabase.from("closed_dates").delete().eq("date", date);
-}

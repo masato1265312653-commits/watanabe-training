@@ -9,7 +9,6 @@ const RESUBMIT_COOLDOWN_MS = 60_000;
 export type SubmitInquiryInput = {
   inquiryType: "reservation" | "general";
   serviceSlug: string;
-  preferredDate: string;
   name: string;
   email: string;
   phone: string;
@@ -42,23 +41,7 @@ export async function submitInquiry(input: SubmitInquiryInput) {
     }
   }
 
-  const needsDate = input.inquiryType === "reservation" && input.serviceSlug !== "team-support";
-
   const supabase = createAdminClient();
-
-  if (needsDate && input.preferredDate) {
-    const { data: closed } = await supabase
-      .from("closed_dates")
-      .select("date")
-      .eq("date", input.preferredDate)
-      .maybeSingle();
-    if (closed) {
-      return {
-        success: false as const,
-        message: "その日は休業日です。別の日をお選びください。",
-      };
-    }
-  }
 
   const { data: recent } = await supabase
     .from("inquiries")
@@ -77,7 +60,6 @@ export async function submitInquiry(input: SubmitInquiryInput) {
   const { error } = await supabase.from("inquiries").insert({
     inquiry_type: input.inquiryType,
     service_slug: input.serviceSlug || null,
-    preferred_date: needsDate ? input.preferredDate || null : null,
     name: input.name,
     email: input.email,
     phone: input.phone || null,

@@ -13,7 +13,6 @@ type InquiryType = "reservation" | "general";
 type FormState = {
   inquiryType: InquiryType;
   serviceSlug: string;
-  preferredDate: string;
   name: string;
   email: string;
   phone: string;
@@ -21,7 +20,7 @@ type FormState = {
   website: string;
 };
 
-export function ContactForm({ closedDates = [] }: { closedDates?: string[] }) {
+export function ContactForm() {
   const searchParams = useSearchParams();
   const presetSlug = searchParams.get("service");
   const presetService = presetSlug ? getServiceBySlug(presetSlug) : undefined;
@@ -30,7 +29,6 @@ export function ContactForm({ closedDates = [] }: { closedDates?: string[] }) {
   const [form, setForm] = useState<FormState>({
     inquiryType: presetValid ? "reservation" : "general",
     serviceSlug: presetValid && presetSlug ? presetSlug : "",
-    preferredDate: "",
     name: "",
     email: "",
     phone: "",
@@ -42,8 +40,6 @@ export function ContactForm({ closedDates = [] }: { closedDates?: string[] }) {
   const [submitting, setSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
 
-  const needsDate = form.inquiryType === "reservation" && form.serviceSlug !== "team-support";
-
   async function handleSubmit(e: FormEvent) {
     e.preventDefault();
     const nextErrors: typeof errors = {};
@@ -52,9 +48,6 @@ export function ContactForm({ closedDates = [] }: { closedDates?: string[] }) {
       nextErrors.email = "メールアドレスの形式が正しくありません";
     if (form.inquiryType === "reservation" && !form.serviceSlug)
       nextErrors.serviceSlug = "ご希望のメニューを選択してください";
-    if (needsDate && !form.preferredDate) nextErrors.preferredDate = "ご希望日を選択してください";
-    if (needsDate && form.preferredDate && closedDates.includes(form.preferredDate))
-      nextErrors.preferredDate = "その日は休業日です。別の日をお選びください";
     if (!form.message.trim()) nextErrors.message = "お問い合わせ内容を入力してください";
     setErrors(nextErrors);
     if (Object.keys(nextErrors).length > 0) return;
@@ -131,13 +124,7 @@ export function ContactForm({ closedDates = [] }: { closedDates?: string[] }) {
           <label className="text-sm font-medium text-slate-700">ご希望のメニュー</label>
           <select
             value={form.serviceSlug}
-            onChange={(e) =>
-              setForm((f) => ({
-                ...f,
-                serviceSlug: e.target.value,
-                preferredDate: e.target.value === "team-support" ? "" : f.preferredDate,
-              }))
-            }
+            onChange={(e) => setForm((f) => ({ ...f, serviceSlug: e.target.value }))}
             className="rounded-lg border border-slate-200 px-3 py-2 text-sm focus:border-teal-600 focus:outline-none"
           >
             <option value="">選択してください</option>
@@ -150,21 +137,6 @@ export function ContactForm({ closedDates = [] }: { closedDates?: string[] }) {
           </select>
           {errors.serviceSlug && (
             <span className="text-xs text-red-500">{errors.serviceSlug}</span>
-          )}
-        </div>
-      )}
-
-      {needsDate && (
-        <div className="flex flex-col gap-1.5">
-          <label className="text-sm font-medium text-slate-700">ご希望日</label>
-          <input
-            type="date"
-            value={form.preferredDate}
-            onChange={(e) => setForm((f) => ({ ...f, preferredDate: e.target.value }))}
-            className="rounded-lg border border-slate-200 px-3 py-2 text-sm focus:border-teal-600 focus:outline-none"
-          />
-          {errors.preferredDate && (
-            <span className="text-xs text-red-500">{errors.preferredDate}</span>
           )}
         </div>
       )}

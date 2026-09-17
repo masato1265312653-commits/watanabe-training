@@ -5,7 +5,6 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 import { LoginForm } from "@/components/admin/LoginForm";
 import { SetupForm } from "@/components/admin/SetupForm";
 import { InquiriesTable, type Inquiry } from "@/components/admin/InquiriesTable";
-import { ClosedDatesManager, type ClosedDate } from "@/components/admin/ClosedDatesManager";
 import { ADMIN_SESSION_COOKIE, isValidSession } from "@/lib/admin-auth";
 import { createAdminClient } from "@/lib/supabase/admin";
 import { logout } from "./actions";
@@ -68,11 +67,6 @@ export default async function AdminPage() {
     });
   const general = inquiries.filter((i) => i.inquiry_type === "general");
 
-  const { data: closedDatesData } = await supabase
-    .from("closed_dates")
-    .select("date, reason")
-    .order("date", { ascending: true });
-
   return (
     <div className="py-16">
       <Container className="flex flex-col gap-12">
@@ -89,11 +83,6 @@ export default async function AdminPage() {
         </div>
 
         <div className="flex flex-col gap-6">
-          <h2 className="text-lg font-bold text-slate-900">休業日の設定</h2>
-          <ClosedDatesManager closedDates={(closedDatesData as ClosedDate[]) ?? []} />
-        </div>
-
-        <div className="flex flex-col gap-6 border-t border-slate-100 pt-12">
           <div>
             <h2 className="text-lg font-bold text-slate-900">
               ご予約

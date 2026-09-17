@@ -19,8 +19,11 @@ export function ProfileSummary() {
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-black/40" />
         <div className="absolute inset-0 flex items-center justify-center px-6 text-center">
-          <h2 className="text-3xl font-black tracking-wide text-white [text-shadow:0_4px_24px_rgba(0,0,0,0.85),0_2px_6px_rgba(0,0,0,0.7)] sm:text-5xl lg:text-6xl">
-            {profile.story.title}
+          <h2 className="text-2xl font-black tracking-wide text-white [text-shadow:0_4px_24px_rgba(0,0,0,0.85),0_2px_6px_rgba(0,0,0,0.7)] sm:text-5xl lg:text-6xl">
+            幅広く、深く。
+            <br className="sm:hidden" />
+            <span className="hidden sm:inline"> </span>
+            選手を支えるトレーナー
           </h2>
         </div>
         <div className="absolute inset-x-0 bottom-0 p-6 sm:p-10">

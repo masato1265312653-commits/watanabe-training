@@ -48,14 +48,3 @@ alter table admin_auth_attempts enable row level security;
 
 create index if not exists admin_auth_attempts_lookup
   on admin_auth_attempts (action, identifier, created_at);
-
-create table if not exists closed_dates (
-  date date primary key,
-  reason text,
-  created_at timestamptz not null default now()
-);
-
-alter table closed_dates enable row level security;
--- No policies: only service_role (server-side, in contact/page.tsx and the
--- admin panel) can read/write. The public site reads this list on the server
--- and passes only the plain date strings down to the contact form.

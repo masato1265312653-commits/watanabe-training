@@ -16,23 +16,11 @@ function getTransporter() {
 export type InquiryMailInput = {
   inquiryType: "reservation" | "general";
   serviceSlug: string;
-  preferredDate: string;
   name: string;
   email: string;
   phone: string;
   message: string;
 };
-
-function formatPreferredDate(dateStr: string): string {
-  if (!dateStr) return "";
-  const date = new Date(`${dateStr}T00:00:00`);
-  return date.toLocaleDateString("ja-JP", {
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-    weekday: "short",
-  });
-}
 
 function buildSummaryLines(input: InquiryMailInput): string[] {
   const service = input.serviceSlug ? getServiceBySlug(input.serviceSlug) : undefined;
@@ -40,9 +28,6 @@ function buildSummaryLines(input: InquiryMailInput): string[] {
     `種別: ${input.inquiryType === "reservation" ? "ご予約" : "ご相談・その他のお問い合わせ"}`,
   ];
   if (service) lines.push(`メニュー: ${service.name}`);
-  if (input.inquiryType === "reservation" && input.preferredDate) {
-    lines.push(`ご希望日: ${formatPreferredDate(input.preferredDate)}`);
-  }
   lines.push(`お名前: ${input.name}`);
   lines.push(`メール: ${input.email}`);
   if (input.phone) lines.push(`電話番号: ${input.phone}`);
