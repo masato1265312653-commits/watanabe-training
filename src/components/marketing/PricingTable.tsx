@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { Button } from "@/components/ui/Button";
 import { services } from "@/lib/data/services";
 import { SERVICE_ICONS } from "./service-icons";
@@ -11,20 +12,25 @@ export function PricingTable() {
         return (
           <div
             key={service.slug}
-            className="flex w-[80%] shrink-0 snap-start flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white sm:w-auto sm:shrink"
+            className="group relative flex w-[80%] shrink-0 snap-start flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white transition-all duration-300 hover:-translate-y-1 hover:shadow-lg sm:w-auto sm:shrink"
           >
+            <Link
+              href={`/services/${service.slug}`}
+              className="absolute inset-0"
+              aria-label={`${service.name}の詳細を見る`}
+            />
             {service.image && (
-              <div className="relative aspect-[4/3] w-full bg-slate-50">
+              <div className="pointer-events-none relative aspect-[4/3] w-full bg-slate-50">
                 <Image
                   src={service.image}
                   alt={service.name}
                   fill
                   sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"
-                  className="object-cover object-top"
+                  className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
                 />
               </div>
             )}
-            <div className="flex flex-1 flex-col gap-5 p-6">
+            <div className="pointer-events-none flex flex-1 flex-col gap-5 p-6">
               <div className="flex items-center gap-3">
                 <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-teal-50 text-teal-700">
                   <Icon size={20} />
@@ -62,11 +68,14 @@ export function PricingTable() {
               )}
 
               {service.comingSoon ? (
-                <Button className="w-full" disabled>
+                <Button className="pointer-events-auto relative w-full" disabled>
                   準備中(2027年4月 提供開始予定)
                 </Button>
               ) : (
-                <Button href={`/contact?service=${service.slug}`} className="w-full">
+                <Button
+                  href={`/contact?service=${service.slug}`}
+                  className="pointer-events-auto relative w-full"
+                >
                   お問い合わせ・予約
                 </Button>
               )}

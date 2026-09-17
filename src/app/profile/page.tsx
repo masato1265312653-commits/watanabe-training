@@ -3,6 +3,7 @@ import Image from "next/image";
 import { Award, MapPin } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
+import { Reveal } from "@/components/ui/Reveal";
 import { CtaBanner } from "@/components/layout/CtaBanner";
 import { profile } from "@/lib/data/profile";
 
@@ -21,7 +22,7 @@ export default function ProfilePage() {
             alt={profile.name}
             fill
             sizes="100vw"
-            className="object-cover"
+            className="object-cover object-[center_70%]"
             priority
           />
         </div>
@@ -44,47 +45,59 @@ export default function ProfilePage() {
 
       <section className="py-16">
         <Container className="flex flex-col gap-6">
-          <SectionHeading title={profile.story.title} />
-          <div className="flex max-w-3xl flex-col gap-4">
-            {profile.story.paragraphs.map((paragraph) => (
-              <p key={paragraph} className="leading-relaxed text-slate-600">
-                {paragraph}
-              </p>
-            ))}
-          </div>
+          <Reveal>
+            <SectionHeading title={profile.story.title} />
+          </Reveal>
+          <Reveal delay={100}>
+            <div className="flex max-w-3xl flex-col gap-4">
+              {profile.story.paragraphs.map((paragraph) => (
+                <p key={paragraph} className="leading-relaxed text-slate-600">
+                  {paragraph}
+                </p>
+              ))}
+            </div>
+          </Reveal>
         </Container>
       </section>
 
       <section className="border-t border-slate-100 py-16">
         <Container className="flex flex-col gap-6">
-          <SectionHeading title="経歴" />
-          <ol className="flex flex-col gap-4">
-            {profile.career.map((item) => (
-              <li key={`${item.year}-${item.event}`} className="flex items-baseline gap-4">
-                <span className="w-16 shrink-0 text-sm font-semibold text-teal-700">
-                  {item.year}
-                </span>
-                <span className="text-sm text-slate-700">{item.event}</span>
-              </li>
-            ))}
-          </ol>
+          <Reveal>
+            <SectionHeading title="経歴" />
+          </Reveal>
+          <Reveal delay={100}>
+            <ol className="flex flex-col gap-4">
+              {profile.career.map((item) => (
+                <li key={`${item.year}-${item.event}`} className="flex items-baseline gap-4">
+                  <span className="w-16 shrink-0 text-sm font-semibold text-teal-700">
+                    {item.year}
+                  </span>
+                  <span className="text-sm text-slate-700">{item.event}</span>
+                </li>
+              ))}
+            </ol>
+          </Reveal>
         </Container>
       </section>
 
       <section className="bg-slate-50 py-16">
         <Container className="flex flex-col gap-4">
-          <SectionHeading title="保有資格" />
-          <ul className="grid gap-3 sm:grid-cols-2">
-            {profile.qualifications.map((q) => (
-              <li
-                key={q}
-                className="flex items-center gap-3 rounded-xl bg-white p-4 text-sm text-slate-700 shadow-sm"
-              >
-                <Award size={20} className="shrink-0 text-teal-700" />
-                {q}
-              </li>
-            ))}
-          </ul>
+          <Reveal>
+            <SectionHeading title="保有資格" />
+          </Reveal>
+          <Reveal delay={100}>
+            <ul className="grid gap-3 sm:grid-cols-2">
+              {profile.qualifications.map((q) => (
+                <li
+                  key={q}
+                  className="flex items-center gap-3 rounded-xl bg-white p-4 text-sm text-slate-700 shadow-sm transition-shadow hover:shadow-md"
+                >
+                  <Award size={20} className="shrink-0 text-teal-700" />
+                  {q}
+                </li>
+              ))}
+            </ul>
+          </Reveal>
         </Container>
       </section>
 
