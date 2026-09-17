@@ -14,19 +14,19 @@ export const metadata: Metadata = {
 export default function ProfilePage() {
   return (
     <div>
-      <section className="bg-teal-50/60 py-16">
-        <Container className="flex flex-col items-center gap-6 text-center sm:flex-row sm:items-center sm:text-left">
-          <div className="relative h-32 w-32 shrink-0 overflow-hidden rounded-full">
-            <Image
-              src="/images/trainer-portrait.jpg"
-              alt={profile.name}
-              fill
-              sizes="128px"
-              className="object-cover"
-              priority
-            />
-          </div>
-          <div className="flex flex-col gap-2">
+      <section className="bg-teal-50/60">
+        <div className="relative h-64 w-full overflow-hidden sm:h-80 lg:h-[26rem]">
+          <Image
+            src="/images/trainer-action.jpg"
+            alt={profile.name}
+            fill
+            sizes="100vw"
+            className="object-cover"
+            priority
+          />
+        </div>
+        <Container className="py-8">
+          <div className="flex flex-col items-center gap-2 text-center sm:items-start sm:text-left">
             <h1 className="text-2xl font-bold text-slate-900 sm:text-3xl">
               {profile.name}
               <span className="ml-2 text-base font-normal text-slate-500">

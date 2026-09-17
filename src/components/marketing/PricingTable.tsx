@@ -14,13 +14,13 @@ export function PricingTable() {
             className="flex flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white"
           >
             {service.image && (
-              <div className="relative h-40 w-full bg-slate-50">
+              <div className="relative aspect-[4/3] w-full bg-slate-50">
                 <Image
                   src={service.image}
                   alt={service.name}
                   fill
                   sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"
-                  className="object-contain"
+                  className="object-cover object-top"
                 />
               </div>
             )}
@@ -63,7 +63,7 @@ export function PricingTable() {
 
               {service.comingSoon ? (
                 <Button className="w-full" disabled>
-                  準備中(近日公開)
+                  準備中(2027年4月 提供開始予定)
                 </Button>
               ) : (
                 <Button href={`/contact?service=${service.slug}`} className="w-full">
