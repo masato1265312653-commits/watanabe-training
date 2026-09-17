@@ -11,7 +11,7 @@ export const faqs: FaqItem[] = [
   },
   {
     question: "入会金はありますか？",
-    answer: "入会金はありません。",
+    answer: "入会金・再診料は不要です。",
   },
   {
     question: "施術・トレーニングの場所について教えてください",

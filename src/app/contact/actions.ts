@@ -21,6 +21,9 @@ export type SubmitInquiryInput = {
 export async function submitInquiry(input: SubmitInquiryInput) {
   if (input.website) {
     // Silently pretend success so bots don't learn their submission was rejected.
+    // Logged because browser autofill has been known to fill this field for
+    // real visitors too, which would otherwise make submissions vanish silently.
+    console.warn("Honeypot field was filled - treating as bot:", input.website);
     return { success: true as const };
   }
 

@@ -60,7 +60,7 @@ export function Hero() {
           </div>
         </div>
 
-        <div className="relative order-first aspect-[2/3] w-64 shrink-0 overflow-hidden shadow-xl lg:order-none sm:w-80 lg:w-96">
+        <div className="relative order-first aspect-[2/3] w-72 shrink-0 overflow-hidden rounded-3xl shadow-xl lg:order-none sm:w-96 lg:w-[28rem]">
           <Image
             src="/images/trainer-portrait.jpg"
             alt={profile.name}

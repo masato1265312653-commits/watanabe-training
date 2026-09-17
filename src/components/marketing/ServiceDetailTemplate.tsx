@@ -43,10 +43,12 @@ export function ServiceDetailTemplate({ service }: { service: Service }) {
               </p>
             </div>
             <div className="flex flex-wrap items-center gap-4 text-sm text-slate-500">
-              <span className="flex items-center gap-1.5">
-                <Clock size={16} className="text-teal-700" />
-                目安 {service.durationMinutes}分〜
-              </span>
+              {service.durationMinutes && (
+                <span className="flex items-center gap-1.5">
+                  <Clock size={16} className="text-teal-700" />
+                  目安 {service.durationMinutes}分〜
+                </span>
+              )}
               <span className="flex items-center gap-1.5">
                 <Users2 size={16} className="text-teal-700" />
                 対応エリア: 神奈川県・東京都
@@ -82,7 +84,7 @@ export function ServiceDetailTemplate({ service }: { service: Service }) {
       <section className="py-16">
         <Container className="grid gap-12 lg:grid-cols-2">
           <div className="flex flex-col gap-4">
-            <SectionHeading title="期待できる効果" />
+            <SectionHeading title="提供内容" />
             <ul className="flex flex-col gap-3">
               {service.benefits.map((benefit) => (
                 <li key={benefit} className="flex items-start gap-2 text-sm text-slate-600">

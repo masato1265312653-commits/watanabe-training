@@ -15,7 +15,7 @@ export type Service = {
   description: string;
   icon: "massage" | "acupuncture" | "training" | "team";
   image?: string;
-  durationMinutes: number;
+  durationMinutes?: number;
   priceOptions: PriceOption[];
   priceNote?: string;
   benefits: string[];
