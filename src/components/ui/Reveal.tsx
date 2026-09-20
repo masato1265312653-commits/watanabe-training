@@ -19,16 +19,14 @@ export function Reveal({
     const el = ref.current;
     if (!el) return;
 
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      setVisible(true);
-      return;
-    }
-
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     // Already on screen at mount (e.g. above-the-fold content) - show it
     // immediately instead of waiting on the observer's async first callback.
     const rect = el.getBoundingClientRect();
-    if (rect.top < window.innerHeight && rect.bottom > 0) {
-      setVisible(true);
+    const alreadyVisible = rect.top < window.innerHeight && rect.bottom > 0;
+
+    if (reduceMotion || alreadyVisible) {
+      queueMicrotask(() => setVisible(true));
       return;
     }
 
