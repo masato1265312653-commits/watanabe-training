@@ -3,6 +3,7 @@ import { Mail, Phone, MapPin } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { ContactForm } from "@/components/contact/ContactForm";
+import { PrivacyNotice } from "@/components/layout/PrivacyNotice";
 
 export const metadata: Metadata = {
   title: "お問い合わせ・予約 | 渡邊 将人 コンディショニング",
@@ -43,6 +44,8 @@ export default function ContactPage() {
           <ContactForm />
         </div>
       </Container>
+
+      <PrivacyNotice />
     </div>
   );
 }

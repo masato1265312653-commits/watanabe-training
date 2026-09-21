@@ -42,8 +42,8 @@ export const services: Service[] = [
     image: "/images/massage.jpg",
     durationMinutes: 60,
     priceOptions: [
-      { label: "60分", price: 7000 },
-      { label: "90分", price: 10000 },
+      { label: "整体施術 60分", price: 7000 },
+      { label: "整体施術 90分", price: 10000 },
     ],
     priceNote: "初回はカウンセリングを含むため、プラス1,000円となります。",
     benefits: [

@@ -4,6 +4,7 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Reveal } from "@/components/ui/Reveal";
 import { PricingTable } from "@/components/marketing/PricingTable";
 import { CtaBanner } from "@/components/layout/CtaBanner";
+import { PrivacyNotice } from "@/components/layout/PrivacyNotice";
 
 export const metadata: Metadata = {
   title: "料金 | 渡邊 将人 コンディショニング",
@@ -46,6 +47,8 @@ export default function ServicesPage() {
           </Reveal>
         </Container>
       </section>
+
+      <PrivacyNotice />
 
       <CtaBanner />
     </div>

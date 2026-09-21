@@ -5,6 +5,7 @@ import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Reveal } from "@/components/ui/Reveal";
 import { CtaBanner } from "@/components/layout/CtaBanner";
+import { PrivacyNotice } from "@/components/layout/PrivacyNotice";
 import { profile } from "@/lib/data/profile";
 
 export const metadata: Metadata = {
@@ -100,6 +101,8 @@ export default function ProfilePage() {
           </Reveal>
         </Container>
       </section>
+
+      <PrivacyNotice />
 
       <CtaBanner />
     </div>
