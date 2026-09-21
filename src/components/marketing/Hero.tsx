@@ -3,12 +3,20 @@ import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
 import { CheckCircle2 } from "lucide-react";
 import { profile } from "@/lib/data/profile";
+import { socialLinks } from "@/lib/data/social";
+import { InstagramIcon, XIcon, LineIcon } from "@/components/icons/brand-icons";
 
 const POINTS = [
   "スポーツチーム・団体への帯同実績多数",
   "神奈川県・東京都で個人からチームまで対応",
   "年齢・競技レベルを問わずオーダーメイド対応",
 ];
+
+const SOCIAL_ICONS: Record<string, typeof InstagramIcon> = {
+  Instagram: InstagramIcon,
+  X: XIcon,
+  LINE: LineIcon,
+};
 
 export function Hero() {
   return (
@@ -57,6 +65,23 @@ export function Hero() {
             <Button href="/contact" size="lg">
               お問い合わせ・予約
             </Button>
+            <div className="flex items-center gap-3">
+              {socialLinks.map((social) => {
+                const Icon = SOCIAL_ICONS[social.name];
+                return (
+                  <a
+                    key={social.name}
+                    href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={social.name}
+                    className="flex h-11 w-11 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-500 transition-colors hover:border-teal-200 hover:text-teal-700"
+                  >
+                    <Icon size={18} />
+                  </a>
+                );
+              })}
+            </div>
           </div>
         </div>
 
