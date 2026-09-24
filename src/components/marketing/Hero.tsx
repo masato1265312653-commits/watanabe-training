@@ -34,19 +34,10 @@ export function Hero() {
           <span className="rounded-full border border-teal-200 bg-white px-4 py-1.5 text-xs font-semibold tracking-wide text-teal-700">
             神奈川県・東京都 対応
           </span>
-          <h1 className="max-w-2xl text-3xl font-black leading-tight tracking-tight text-slate-900 sm:text-5xl">
-            <span className="text-2xl sm:hidden">
-              チームの怪我予防とコンディショ
-              <br />
-              ニングを、<span className="text-teal-700">専属トレーナー</span>帯同で。
-            </span>
-            <span className="hidden sm:inline">
-              チームの怪我予防と
-              <br />
-              コンディショニングを、
-              <br />
-              <span className="text-teal-700">専属トレーナー</span>帯同で。
-            </span>
+          <h1 className="max-w-2xl text-[1.75rem] font-black leading-tight tracking-tighter text-slate-900 sm:text-5xl sm:tracking-tight">
+            <span className="block whitespace-nowrap">チームの怪我予防から</span>
+            <span className="block whitespace-nowrap">パフォーマンスアップを、</span>
+            <span className="text-teal-700">専属トレーナー</span>で。
           </h1>
           <p className="max-w-xl text-base leading-relaxed text-slate-600 sm:text-lg">
             スポーツチームサポート(トレーナー帯同)をメインに、整体施術・鍼灸施術(準備中)・パーソナルトレーニングまで渡邊 将人が一貫して提供します。年齢もレベルも問わず、あなたに合わせたコンディショニングを。
