@@ -49,7 +49,7 @@ export default function ProfilePage() {
             <SectionHeading title={profile.story.title} />
           </Reveal>
           <Reveal delay={100}>
-            <div className="flex max-w-3xl flex-col gap-4">
+            <div className="flex max-w-3xl flex-col gap-4 lg:max-w-6xl">
               {profile.story.paragraphs.map((paragraph) => (
                 <p key={paragraph} className="leading-relaxed text-slate-600">
                   {paragraph}
