@@ -34,7 +34,7 @@ export function Hero() {
           <span className="rounded-full border border-teal-200 bg-white px-4 py-1.5 text-xs font-semibold tracking-wide text-teal-700">
             神奈川県・東京都 対応
           </span>
-          <h1 className="max-w-2xl text-3xl font-bold leading-tight tracking-tight text-slate-900 sm:text-5xl">
+          <h1 className="max-w-2xl text-3xl font-black leading-tight tracking-tight text-slate-900 sm:text-5xl">
             <span className="text-2xl sm:hidden">
               チームの怪我予防とコンディショ
               <br />

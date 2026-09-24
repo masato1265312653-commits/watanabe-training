@@ -5,7 +5,6 @@ import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Reveal } from "@/components/ui/Reveal";
 import { CtaBanner } from "@/components/layout/CtaBanner";
-import { PrivacyNotice } from "@/components/layout/PrivacyNotice";
 import { profile } from "@/lib/data/profile";
 
 export const metadata: Metadata = {
@@ -67,16 +66,20 @@ export default function ProfilePage() {
             <SectionHeading title="経歴" />
           </Reveal>
           <Reveal delay={100}>
-            <ol className="flex flex-col gap-4">
-              {profile.career.map((item) => (
-                <li key={`${item.year}-${item.event}`} className="flex items-baseline gap-4">
-                  <span className="w-16 shrink-0 text-sm font-semibold text-teal-700">
-                    {item.year}
-                  </span>
-                  <span className="text-sm text-slate-700">{item.event}</span>
-                </li>
+            <div className="flex flex-col gap-4 lg:flex-row lg:gap-12">
+              {[profile.career.slice(0, 4), profile.career.slice(4)].map((group, i) => (
+                <ol key={i} className="flex flex-1 flex-col gap-4">
+                  {group.map((item) => (
+                    <li key={`${item.year}-${item.event}`} className="flex items-baseline gap-4">
+                      <span className="w-16 shrink-0 text-sm font-semibold text-teal-700">
+                        {item.year}
+                      </span>
+                      <span className="text-sm text-slate-700">{item.event}</span>
+                    </li>
+                  ))}
+                </ol>
               ))}
-            </ol>
+            </div>
           </Reveal>
         </Container>
       </section>
@@ -101,8 +104,6 @@ export default function ProfilePage() {
           </Reveal>
         </Container>
       </section>
-
-      <PrivacyNotice />
 
       <CtaBanner />
     </div>

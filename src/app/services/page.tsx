@@ -4,7 +4,7 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Reveal } from "@/components/ui/Reveal";
 import { PricingTable } from "@/components/marketing/PricingTable";
 import { CtaBanner } from "@/components/layout/CtaBanner";
-import { PrivacyNotice } from "@/components/layout/PrivacyNotice";
+import { PaymentNotice } from "@/components/layout/PaymentNotice";
 
 export const metadata: Metadata = {
   title: "料金 | 渡邊 将人 コンディショニング",
@@ -33,22 +33,7 @@ export default function ServicesPage() {
         </Container>
       </section>
 
-      <section className="bg-slate-50 py-12">
-        <Container>
-          <Reveal>
-            <div className="rounded-2xl border border-slate-200 bg-white p-6 text-sm leading-relaxed text-slate-500">
-              <p className="font-semibold text-slate-700">お支払いについて</p>
-              <p className="mt-2">現金またはお振込でのお支払いに対応しています。</p>
-              <p className="mt-4 font-semibold text-slate-700">キャンセルポリシー</p>
-              <p className="mt-2">
-                整体施術・パーソナルトレーニングは、ご予約日前日の12時までのご連絡でキャンセル料はかかりません。前日12時以降〜当日のキャンセルは、施術料金の100%をキャンセル料として申し受けます。
-              </p>
-            </div>
-          </Reveal>
-        </Container>
-      </section>
-
-      <PrivacyNotice />
+      <PaymentNotice />
 
       <CtaBanner />
     </div>
