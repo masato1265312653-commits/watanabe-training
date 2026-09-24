@@ -36,11 +36,13 @@ export function ContactForm() {
     website: "",
   });
   const [errors, setErrors] = useState<Partial<Record<keyof FormState, string>>>({});
-  const [submitted, setSubmitted] = useState(false);
+  const [agreed, setAgreed] = useState(false);
+  const [agreedError, setAgreedError] = useState<string | null>(null);
+  const [step, setStep] = useState<"input" | "confirm" | "done">("input");
   const [submitting, setSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
 
-  async function handleSubmit(e: FormEvent) {
+  function handleReview(e: FormEvent) {
     e.preventDefault();
     const nextErrors: typeof errors = {};
     if (!form.name.trim()) nextErrors.name = "お名前を入力してください";
@@ -50,8 +52,13 @@ export function ContactForm() {
       nextErrors.serviceSlug = "ご希望のメニューを選択してください";
     if (!form.message.trim()) nextErrors.message = "お問い合わせ内容を入力してください";
     setErrors(nextErrors);
-    if (Object.keys(nextErrors).length > 0) return;
+    setAgreedError(agreed ? null : "個人情報の取扱いに同意してください");
+    if (Object.keys(nextErrors).length > 0 || !agreed) return;
 
+    setStep("confirm");
+  }
+
+  async function handleFinalSubmit() {
     setSubmitting(true);
     setSubmitError(null);
     const result = await submitInquiry(form);
@@ -61,10 +68,10 @@ export function ContactForm() {
       setSubmitError(result.message);
       return;
     }
-    setSubmitted(true);
+    setStep("done");
   }
 
-  if (submitted) {
+  if (step === "done") {
     return (
       <div className="flex flex-col items-center gap-4 rounded-2xl border border-slate-200 bg-white p-10 text-center">
         <CheckCircle2 size={48} className="text-teal-600" />
@@ -78,8 +85,63 @@ export function ContactForm() {
     );
   }
 
+  if (step === "confirm") {
+    const service = form.serviceSlug ? getServiceBySlug(form.serviceSlug) : undefined;
+    const rows = [
+      {
+        label: "お問い合わせ内容",
+        value: form.inquiryType === "reservation" ? "ご予約について" : "ご相談・その他のお問い合わせ",
+      },
+      ...(form.inquiryType === "reservation" && service
+        ? [{ label: "ご希望のメニュー", value: service.name }]
+        : []),
+      { label: "お名前", value: form.name },
+      { label: "電話番号", value: form.phone || "-" },
+      { label: "メールアドレス", value: form.email },
+      {
+        label: form.inquiryType === "reservation" ? "ご希望の時間帯・その他ご要望" : "お問い合わせ内容",
+        value: form.message,
+      },
+    ];
+
+    return (
+      <div className="flex flex-col gap-5">
+        <p className="text-sm text-slate-600">
+          以下の内容でお間違いなければ「送信する」を押してください。
+        </p>
+        <dl className="flex flex-col divide-y divide-slate-100 rounded-xl border border-slate-200">
+          {rows.map((row) => (
+            <div key={row.label} className="grid gap-1 p-4 sm:grid-cols-[10rem_1fr] sm:gap-4">
+              <dt className="text-xs font-medium text-slate-500">{row.label}</dt>
+              <dd className="whitespace-pre-wrap text-sm text-slate-800">{row.value}</dd>
+            </div>
+          ))}
+        </dl>
+
+        {submitError && <p className="text-sm text-red-500">{submitError}</p>}
+
+        <div className="flex flex-wrap items-center gap-3">
+          <Button
+            type="button"
+            variant="secondary"
+            onClick={() => {
+              setSubmitError(null);
+              setStep("input");
+            }}
+            disabled={submitting}
+          >
+            戻る
+          </Button>
+          <Button type="button" onClick={handleFinalSubmit} disabled={submitting}>
+            {submitting ? "送信中..." : "送信する"}
+          </Button>
+        </div>
+      </div>
+    );
+  }
+
   return (
-    <form onSubmit={handleSubmit} className="flex flex-col gap-5">
+    <form onSubmit={handleReview} className="flex flex-col gap-5">
       <div className="absolute left-[-9999px] top-auto" aria-hidden="true">
         <label htmlFor="hp_do_not_fill">この項目は入力しないでください</label>
         <input
@@ -191,9 +253,29 @@ export function ContactForm() {
           {errors.message && <span className="text-xs text-red-500">{errors.message}</span>}
         </div>
       </div>
-      {submitError && <p className="text-sm text-red-500">{submitError}</p>}
-      <Button type="submit" className="self-start" disabled={submitting}>
-        {submitting ? "送信中..." : "送信する"}
+      <div className="flex flex-col gap-1.5">
+        <label className="flex items-start gap-2 text-sm text-slate-600">
+          <input
+            type="checkbox"
+            checked={agreed}
+            onChange={(e) => {
+              setAgreed(e.target.checked);
+              if (e.target.checked) setAgreedError(null);
+            }}
+            className="mt-0.5 h-4 w-4 shrink-0 rounded border-slate-300 text-teal-700 focus:ring-teal-600"
+          />
+          <span>
+            <a href="#privacy" className="text-teal-700 underline hover:no-underline">
+              個人情報の取扱いについて
+            </a>
+            に同意する
+          </span>
+        </label>
+        {agreedError && <span className="text-xs text-red-500">{agreedError}</span>}
+      </div>
+
+      <Button type="submit" className="self-start">
+        確認する
       </Button>
     </form>
   );

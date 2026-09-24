@@ -3,7 +3,10 @@ import { Container } from "@/components/ui/Container";
 export function PrivacyNotice() {
   return (
     <Container className="py-12">
-      <div className="rounded-2xl border border-slate-200 bg-slate-50 p-6 text-sm leading-relaxed text-slate-600 sm:p-8">
+      <div
+        id="privacy"
+        className="scroll-mt-24 rounded-2xl border border-slate-200 bg-slate-50 p-6 text-sm leading-relaxed text-slate-600 sm:p-8"
+      >
         <h2 className="text-base font-bold text-slate-900">個人情報の取扱いについて</h2>
         <p className="mt-3">
           お客様の個人情報を以下のように取り扱います。下記の内容をご確認いただき、ご同意の程お願い申し上げます。
