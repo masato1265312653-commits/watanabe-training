@@ -9,8 +9,8 @@ import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
 
 const NAV_LINKS = [
-  { href: "/services", label: "料金" },
   { href: "/profile", label: "プロフィール" },
+  { href: "/services", label: "料金" },
   { href: "/qa", label: "Q&A" },
   { href: "/access", label: "アクセス" },
   { href: "/contact", label: "お問い合わせ" },

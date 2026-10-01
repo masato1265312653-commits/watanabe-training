@@ -30,17 +30,26 @@ export function Reveal({
       return;
     }
 
+    // Safety net: some mobile browsers/webviews don't fire IntersectionObserver
+    // reliably in every context. Content must never stay permanently invisible,
+    // so force it visible after a short delay no matter what.
+    const fallback = setTimeout(() => setVisible(true), 2000);
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
           setVisible(true);
+          clearTimeout(fallback);
           observer.disconnect();
         }
       },
-      { threshold: 0.15, rootMargin: "0px 0px -10% 0px" }
+      { threshold: 0, rootMargin: "0px 0px -5% 0px" }
     );
     observer.observe(el);
-    return () => observer.disconnect();
+    return () => {
+      observer.disconnect();
+      clearTimeout(fallback);
+    };
   }, []);
 
   return (
