@@ -8,7 +8,7 @@ import { profile } from "@/lib/data/profile";
 
 export function ProfileSummary() {
   return (
-    <section className="bg-white">
+    <section className="-mt-16 bg-white">
       <div className="relative h-[70vh] w-full overflow-hidden sm:h-[85vh] lg:h-screen">
         <Image
           src="/images/trainer-action.jpg"

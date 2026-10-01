@@ -1,8 +1,10 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
+import { clsx } from "clsx";
 import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
 
@@ -16,28 +18,43 @@ const NAV_LINKS = [
 
 export function Header() {
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const pathname = usePathname();
+  const isHome = pathname === "/";
+
+  useEffect(() => {
+    if (!isHome) return;
+    function onScroll() {
+      setScrolled(window.scrollY > 40);
+    }
+    onScroll();
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
+  }, [isHome]);
+
+  const transparent = isHome && !scrolled;
 
   return (
-    <header className="sticky top-0 z-50 border-b border-slate-100 bg-white/90 backdrop-blur">
-      <Container className="flex h-16 items-center justify-between">
-        <Link href="/" className="flex items-center gap-2">
-          <span className="flex h-9 w-9 items-center justify-center rounded-full bg-teal-700 text-sm font-bold text-white">
-            渡
-          </span>
-          <span className="text-sm font-bold tracking-tight text-slate-900 sm:text-base">
-            渡邊 将人
-            <span className="ml-1 font-normal text-slate-500">
-              コンディショニング
-            </span>
-          </span>
-        </Link>
-
+    <header
+      className={clsx(
+        "sticky top-0 z-50 border-b transition-colors duration-300",
+        transparent
+          ? "border-transparent bg-transparent"
+          : "border-slate-100 bg-white/90 backdrop-blur"
+      )}
+    >
+      <div className="flex h-16 w-full items-center justify-end gap-7 px-6 lg:px-10">
         <nav className="hidden items-center gap-7 lg:flex">
           {NAV_LINKS.map((link) => (
             <Link
               key={link.href}
               href={link.href}
-              className="text-sm font-medium text-slate-600 transition-colors hover:text-teal-800"
+              className={clsx(
+                "text-sm font-medium transition-colors",
+                transparent
+                  ? "text-white hover:text-white/80"
+                  : "text-slate-600 hover:text-teal-800"
+              )}
             >
               {link.label}
             </Link>
@@ -45,20 +62,23 @@ export function Header() {
         </nav>
 
         <div className="hidden lg:block">
-          <Button href="/contact" size="md">
+          <Button href="/contact" size="md" variant={transparent ? "outline" : "primary"}>
             お問い合わせ・予約
           </Button>
         </div>
 
         <button
           type="button"
-          className="flex h-10 w-10 items-center justify-center rounded-lg text-slate-700 lg:hidden"
+          className={clsx(
+            "flex h-10 w-10 items-center justify-center rounded-lg lg:hidden",
+            transparent ? "text-white" : "text-slate-700"
+          )}
           onClick={() => setOpen((v) => !v)}
           aria-label="メニューを開く"
         >
           {open ? <X size={22} /> : <Menu size={22} />}
         </button>
-      </Container>
+      </div>
 
       {open && (
         <div className="border-t border-slate-100 bg-white lg:hidden">
