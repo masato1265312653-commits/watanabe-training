@@ -8,7 +8,7 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-zen-kaku), var(--font-noto-sans-jp), var(--font-geist-sans), sans-serif;
+  --font-sans: "Hiragino Kaku Gothic ProN", "Hiragino Sans", var(--font-noto-sans-jp), var(--font-geist-sans), "Yu Gothic", sans-serif;
 }
 
 body {
