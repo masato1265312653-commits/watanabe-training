@@ -148,7 +148,7 @@ export function ServiceDetailTemplate({ service }: { service: Service }) {
 
       <CtaBanner
         title={`${service.name}についてのご相談・お問い合わせ`}
-        description="ご不明な点やご相談は、お問い合わせフォームからお気軽にご連絡ください。"
+        description={"ご不明な点やご相談は、お問い合わせフォームから\nお気軽にご連絡ください。"}
       />
     </div>
   );

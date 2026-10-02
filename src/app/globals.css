@@ -10,16 +10,16 @@
   --color-foreground: var(--foreground);
   --font-sans: "Hiragino Kaku Gothic ProN", "Hiragino Sans", var(--font-noto-sans-jp), var(--font-geist-sans), "Yu Gothic", sans-serif;
 
-  --color-khaki-50: #f3f9f4;
-  --color-khaki-100: #e1f0e3;
-  --color-khaki-200: #c3dfc8;
-  --color-khaki-300: #9fc9a7;
-  --color-khaki-400: #7cb286;
-  --color-khaki-500: #5f9969;
-  --color-khaki-600: #4c7f55;
-  --color-khaki-700: #406b48;
-  --color-khaki-800: #38593e;
-  --color-khaki-900: #2f4a34;
+  --color-khaki-50: #f1fcf9;
+  --color-khaki-100: #d1f8ee;
+  --color-khaki-200: #a4f0dd;
+  --color-khaki-300: #6ee2c9;
+  --color-khaki-400: #41ccb1;
+  --color-khaki-500: #27b097;
+  --color-khaki-600: #1d8f7b;
+  --color-khaki-700: #1b735c;
+  --color-khaki-800: #1d6254;
+  --color-khaki-900: #1a4d45;
 }
 
 body {
