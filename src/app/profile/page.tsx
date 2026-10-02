@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { Award, MapPin } from "lucide-react";
 import { Container } from "@/components/ui/Container";
-import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Reveal } from "@/components/ui/Reveal";
 import { CtaBanner } from "@/components/layout/CtaBanner";
 import { profile } from "@/lib/data/profile";
@@ -11,6 +10,17 @@ export const metadata: Metadata = {
   title: "プロフィール | 渡邊 将人 コンディショニング",
   description: "渡邊 将人のプロフィール、保有資格をご紹介します。",
 };
+
+function EditorialHeading({ en, title }: { en: string; title: string }) {
+  return (
+    <div className="flex flex-col gap-2 border-b border-slate-200 pb-6 sm:flex-row sm:items-baseline sm:gap-6">
+      <h2 className="text-4xl font-black uppercase tracking-tight text-teal-800 sm:text-5xl">
+        {en}
+      </h2>
+      <p className="text-lg font-bold text-slate-900 sm:text-xl">{title}</p>
+    </div>
+  );
+}
 
 export default function ProfilePage() {
   return (
@@ -45,7 +55,7 @@ export default function ProfilePage() {
       <section className="py-16">
         <Container className="flex flex-col gap-6">
           <Reveal>
-            <SectionHeading eyebrow="Story" title={profile.story.title} />
+            <EditorialHeading en="Story" title={profile.story.title} />
           </Reveal>
           <Reveal delay={100}>
             <div className="flex max-w-3xl flex-col gap-4 lg:max-w-6xl">
@@ -62,7 +72,7 @@ export default function ProfilePage() {
       <section className="border-t border-slate-100 py-16">
         <Container className="flex flex-col gap-6">
           <Reveal>
-            <SectionHeading eyebrow="Career" title="経歴" />
+            <EditorialHeading en="Career" title="経歴" />
           </Reveal>
           <Reveal delay={100}>
             <div className="flex flex-col gap-8 lg:flex-row lg:gap-16">
@@ -87,7 +97,7 @@ export default function ProfilePage() {
       <section className="bg-slate-50 py-16">
         <Container className="flex flex-col gap-4">
           <Reveal>
-            <SectionHeading eyebrow="Qualification" title="保有資格" />
+            <EditorialHeading en="Qualification" title="保有資格" />
           </Reveal>
           <Reveal delay={100}>
             <ul className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
