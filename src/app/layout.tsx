@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
+import { Zen_Kaku_Gothic_New } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
@@ -22,6 +23,14 @@ const notoSansJP = localFont({
   display: "swap",
 });
 
+const zenKaku = Zen_Kaku_Gothic_New({
+  variable: "--font-zen-kaku",
+  subsets: ["latin"],
+  weight: ["400", "500", "700", "900"],
+  display: "swap",
+  preload: false,
+});
+
 export const metadata: Metadata = {
   title: "渡邊 将人 コンディショニング | スポーツトレーナー帯同・整体・鍼灸(準備中)・パーソナルトレーニング",
   description:
@@ -32,7 +41,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="ja"
-      className={`${geistSans.variable} ${notoSansJP.variable} h-full antialiased`}
+      className={`${geistSans.variable} ${notoSansJP.variable} ${zenKaku.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col font-sans">
         <Header />
