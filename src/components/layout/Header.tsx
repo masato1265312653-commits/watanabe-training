@@ -72,7 +72,9 @@ export function Header() {
           type="button"
           className={clsx(
             "flex h-11 w-11 items-center justify-center rounded-full transition-colors duration-300 lg:hidden",
-            transparent ? "bg-white text-teal-900" : "bg-teal-900 text-white"
+            transparent
+              ? "border border-white/40 bg-white/15 text-white backdrop-blur-sm"
+              : "bg-teal-800 text-white"
           )}
           onClick={() => setOpen((v) => !v)}
           aria-label="メニューを開く"
