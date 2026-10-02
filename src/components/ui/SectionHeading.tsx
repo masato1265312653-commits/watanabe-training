@@ -1,3 +1,4 @@
+import { Fragment } from "react";
 import { clsx } from "clsx";
 
 export function SectionHeading({
@@ -32,7 +33,12 @@ export function SectionHeading({
       </h2>
       {description && (
         <p className="max-w-2xl text-slate-600 leading-relaxed">
-          {description}
+          {description.split("\n").map((line, i, lines) => (
+            <Fragment key={i}>
+              {line}
+              {i < lines.length - 1 && <br className="hidden sm:block" />}
+            </Fragment>
+          ))}
         </p>
       )}
     </div>

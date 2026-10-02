@@ -21,12 +21,12 @@ export default function ContactPage() {
             title="お問い合わせ・予約"
             description="ご予約やサービス内容に関するご質問など、お気軽にお問い合わせください。"
           />
-          <ul className="flex flex-col gap-3 text-sm text-slate-600">
+          <ul className="flex flex-col gap-3 text-sm font-semibold text-slate-800">
             <li className="flex items-center gap-2">
               <Mail size={18} className="text-khaki-700" />
               watanabe0503at@gmail.com
             </li>
-            <li className="flex items-start gap-2 text-xs text-slate-400">
+            <li className="flex items-start gap-2 text-sm font-medium text-slate-600">
               <span className="w-[18px] shrink-0" aria-hidden />
               ※ 上記からご返信いたします。届かない場合は迷惑メールフォルダもご確認ください。
             </li>

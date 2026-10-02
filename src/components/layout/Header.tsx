@@ -51,10 +51,10 @@ export function Header() {
               key={link.href}
               href={link.href}
               className={clsx(
-                "text-sm font-medium transition-colors",
+                "text-sm font-semibold transition-colors",
                 transparent
                   ? "text-white hover:text-white/80"
-                  : "text-slate-600 hover:text-khaki-800"
+                  : "text-slate-700 hover:text-khaki-800"
               )}
             >
               {link.label}

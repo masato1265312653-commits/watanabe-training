@@ -11,17 +11,19 @@ export function CtaBanner({
 }) {
   return (
     <section className="bg-khaki-800">
-      <Container className="flex flex-col items-center gap-6 py-16 text-center">
-        <h2 className="text-2xl font-bold text-white sm:text-3xl">{title}</h2>
-        <p className="max-w-xl text-sm text-khaki-100 sm:text-base">
-          {description.split("\n").map((line, i, lines) => (
-            <Fragment key={i}>
-              {line}
-              {i < lines.length - 1 && <br className="sm:hidden" />}
-            </Fragment>
-          ))}
-        </p>
-        <div className="flex flex-wrap items-center justify-center gap-4">
+      <Container className="flex flex-col items-center gap-6 py-16 text-center sm:flex-row sm:items-center sm:justify-between sm:gap-10 sm:text-left">
+        <div className="flex flex-col gap-3">
+          <h2 className="text-2xl font-bold text-white sm:text-3xl lg:text-4xl">{title}</h2>
+          <p className="max-w-xl text-sm text-khaki-100 sm:max-w-none sm:text-base lg:text-lg">
+            {description.split("\n").map((line, i, lines) => (
+              <Fragment key={i}>
+                {line}
+                {i < lines.length - 1 && <br className="sm:hidden" />}
+              </Fragment>
+            ))}
+          </p>
+        </div>
+        <div className="flex shrink-0 flex-wrap items-center justify-center gap-4">
           <Button href="/contact" variant="secondary" size="lg">
             お問い合わせ・予約
           </Button>

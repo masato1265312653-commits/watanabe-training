@@ -38,7 +38,7 @@ export function ServiceDetailTemplate({ service }: { service: Service }) {
               <h1 className="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
                 {service.name}
               </h1>
-              <p className="max-w-2xl text-base text-slate-600 leading-relaxed">
+              <p className="max-w-2xl text-base font-semibold text-slate-700 leading-relaxed">
                 {service.description}
               </p>
             </div>
@@ -87,7 +87,7 @@ export function ServiceDetailTemplate({ service }: { service: Service }) {
             <SectionHeading title="提供内容" />
             <ul className="flex flex-col gap-3">
               {service.benefits.map((benefit) => (
-                <li key={benefit} className="flex items-start gap-2 text-sm text-slate-600">
+                <li key={benefit} className="flex items-start gap-2 text-sm font-semibold text-slate-700">
                   <CheckCircle2 size={18} className="mt-0.5 shrink-0 text-khaki-600" />
                   {benefit}
                 </li>
@@ -99,7 +99,7 @@ export function ServiceDetailTemplate({ service }: { service: Service }) {
             <SectionHeading title="こんな方におすすめ" />
             <ul className="flex flex-col gap-3">
               {service.targets.map((target) => (
-                <li key={target} className="flex items-start gap-2 text-sm text-slate-600">
+                <li key={target} className="flex items-start gap-2 text-sm font-semibold text-slate-700">
                   <CheckCircle2 size={18} className="mt-0.5 shrink-0 text-khaki-600" />
                   {target}
                 </li>

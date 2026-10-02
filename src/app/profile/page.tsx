@@ -104,7 +104,7 @@ export default function ProfilePage() {
               {profile.qualifications.map((q) => (
                 <li
                   key={q}
-                  className="flex items-center gap-3 rounded-xl border border-slate-100 bg-white p-4 text-sm font-medium text-slate-700 shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-md"
+                  className="flex items-center gap-3 rounded-xl border border-slate-100 bg-white p-4 text-sm font-bold text-slate-800 shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-md"
                 >
                   <Award size={20} className="shrink-0 text-khaki-700" />
                   {q}

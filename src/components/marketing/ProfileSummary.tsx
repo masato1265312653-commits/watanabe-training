@@ -8,7 +8,7 @@ import { profile } from "@/lib/data/profile";
 
 export function ProfileSummary() {
   return (
-    <section className="-mt-16 bg-gradient-to-b from-khaki-50/60 to-white">
+    <section className="-mt-16 bg-gradient-to-b from-khaki-50/60 via-white to-khaki-50">
       <div className="relative h-screen w-full overflow-hidden">
         <Image
           src="/images/trainer-action.jpg"
@@ -44,7 +44,7 @@ export function ProfileSummary() {
             {profile.qualifications.map((q) => (
               <li
                 key={q}
-                className="flex items-start gap-2 rounded-xl border border-slate-100 bg-white p-3 text-sm font-medium text-slate-700 shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-md"
+                className="flex items-start gap-2 rounded-xl border border-slate-100 bg-white p-3 text-sm font-bold text-slate-800 shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-md"
               >
                 <Award size={18} className="mt-0.5 shrink-0 text-khaki-700" />
                 {q}
