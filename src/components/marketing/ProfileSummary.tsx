@@ -8,7 +8,7 @@ import { profile } from "@/lib/data/profile";
 
 export function ProfileSummary() {
   return (
-    <section className="-mt-16 bg-gradient-to-b from-teal-50/60 to-white">
+    <section className="-mt-16 bg-gradient-to-b from-khaki-50/60 to-white">
       <div className="relative h-screen w-full overflow-hidden">
         <Image
           src="/images/trainer-action.jpg"
@@ -46,7 +46,7 @@ export function ProfileSummary() {
                 key={q}
                 className="flex items-start gap-2 rounded-xl border border-slate-100 bg-white p-3 text-sm font-medium text-slate-700 shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-md"
               >
-                <Award size={18} className="mt-0.5 shrink-0 text-teal-700" />
+                <Award size={18} className="mt-0.5 shrink-0 text-khaki-700" />
                 {q}
               </li>
             ))}
@@ -54,7 +54,7 @@ export function ProfileSummary() {
         </Reveal>
         <Link
           href="/profile"
-          className="flex items-center gap-1 text-sm font-semibold text-teal-700 transition-all hover:gap-2"
+          className="flex items-center gap-1 text-sm font-semibold text-khaki-700 transition-all hover:gap-2"
         >
           プロフィールをもっと見る
           <ArrowRight size={16} />

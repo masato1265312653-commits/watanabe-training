@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 export default function AccessPage() {
   return (
     <div>
-      <section className="bg-teal-50/60 py-16">
+      <section className="bg-khaki-50/60 py-16">
         <Container>
           <SectionHeading
             eyebrow="Access"
@@ -26,7 +26,7 @@ export default function AccessPage() {
         <Container>
           <div className="mx-auto flex max-w-2xl flex-col gap-6">
             <div className="flex items-start gap-3 rounded-2xl border border-slate-200 p-5">
-              <Car size={22} className="mt-0.5 shrink-0 text-teal-700" />
+              <Car size={22} className="mt-0.5 shrink-0 text-khaki-700" />
               <div>
                 <h3 className="font-semibold text-slate-900">出張対応</h3>
                 <p className="mt-1 text-sm text-slate-500">
@@ -35,7 +35,7 @@ export default function AccessPage() {
               </div>
             </div>
             <div className="flex items-start gap-3 rounded-2xl border border-slate-200 p-5">
-              <MapPin size={22} className="mt-0.5 shrink-0 text-teal-700" />
+              <MapPin size={22} className="mt-0.5 shrink-0 text-khaki-700" />
               <div>
                 <h3 className="font-semibold text-slate-900">対応エリア</h3>
                 <p className="mt-1 text-sm text-slate-500">

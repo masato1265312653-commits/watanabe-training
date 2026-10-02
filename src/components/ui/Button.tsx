@@ -6,8 +6,8 @@ type Size = "md" | "lg";
 
 const variantClasses: Record<Variant, string> = {
   primary:
-    "bg-teal-700 text-white hover:bg-teal-800 shadow-sm shadow-teal-900/10",
-  secondary: "bg-white text-teal-800 hover:bg-teal-50 border border-teal-200",
+    "bg-khaki-700 text-white hover:bg-khaki-800 shadow-sm shadow-khaki-900/10",
+  secondary: "bg-white text-khaki-800 hover:bg-khaki-50 border border-khaki-200",
   outline:
     "bg-transparent text-white border border-white/70 hover:bg-white/10",
 };
@@ -18,7 +18,7 @@ const sizeClasses: Record<Size, string> = {
 };
 
 const base =
-  "inline-flex items-center justify-center gap-2 rounded-full font-semibold transition-all duration-200 hover:scale-[1.03] active:scale-[0.97] focus:outline-none focus-visible:ring-2 focus-visible:ring-teal-600 focus-visible:ring-offset-2";
+  "inline-flex items-center justify-center gap-2 rounded-full font-semibold transition-all duration-200 hover:scale-[1.03] active:scale-[0.97] focus:outline-none focus-visible:ring-2 focus-visible:ring-khaki-600 focus-visible:ring-offset-2";
 
 export function Button({
   href,

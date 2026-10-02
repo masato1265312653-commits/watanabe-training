@@ -32,7 +32,7 @@ export function PricingTable() {
             )}
             <div className="pointer-events-none flex flex-1 flex-col gap-5 p-6">
               <div className="flex flex-col gap-3">
-                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-teal-50 text-teal-700">
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-khaki-50 text-khaki-700">
                   <Icon size={20} />
                 </div>
                 <div>

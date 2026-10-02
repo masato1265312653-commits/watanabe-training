@@ -12,7 +12,7 @@ export function ServiceDetailTemplate({ service }: { service: Service }) {
 
   return (
     <div>
-      <section className="bg-teal-50/60">
+      <section className="bg-khaki-50/60">
         <Container
           className={
             service.image
@@ -21,12 +21,12 @@ export function ServiceDetailTemplate({ service }: { service: Service }) {
           }
         >
           <div className="flex flex-col gap-6">
-            <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-teal-700 text-white">
+            <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-khaki-700 text-white">
               <Icon size={28} />
             </div>
             <div className="flex flex-col gap-3">
               <div className="flex items-center gap-2">
-                <span className="text-sm font-semibold text-teal-700">
+                <span className="text-sm font-semibold text-khaki-700">
                   {service.category === "individual" ? "個人向けサービス" : "チーム・団体向けサービス"}
                 </span>
                 {service.comingSoon && (
@@ -45,12 +45,12 @@ export function ServiceDetailTemplate({ service }: { service: Service }) {
             <div className="flex flex-wrap items-center gap-4 text-sm text-slate-500">
               {service.durationMinutes && (
                 <span className="flex items-center gap-1.5">
-                  <Clock size={16} className="text-teal-700" />
+                  <Clock size={16} className="text-khaki-700" />
                   目安 {service.durationMinutes}分〜
                 </span>
               )}
               <span className="flex items-center gap-1.5">
-                <Users2 size={16} className="text-teal-700" />
+                <Users2 size={16} className="text-khaki-700" />
                 対応エリア: 神奈川県・東京都
               </span>
             </div>
@@ -67,7 +67,7 @@ export function ServiceDetailTemplate({ service }: { service: Service }) {
             </div>
           </div>
           {service.image && (
-            <div className="relative aspect-[4/3] w-full overflow-hidden rounded-3xl bg-teal-100/40">
+            <div className="relative aspect-[4/3] w-full overflow-hidden rounded-3xl bg-khaki-100/40">
               <Image
                 src={service.image}
                 alt={service.name}
@@ -88,7 +88,7 @@ export function ServiceDetailTemplate({ service }: { service: Service }) {
             <ul className="flex flex-col gap-3">
               {service.benefits.map((benefit) => (
                 <li key={benefit} className="flex items-start gap-2 text-sm text-slate-600">
-                  <CheckCircle2 size={18} className="mt-0.5 shrink-0 text-teal-600" />
+                  <CheckCircle2 size={18} className="mt-0.5 shrink-0 text-khaki-600" />
                   {benefit}
                 </li>
               ))}
@@ -100,7 +100,7 @@ export function ServiceDetailTemplate({ service }: { service: Service }) {
             <ul className="flex flex-col gap-3">
               {service.targets.map((target) => (
                 <li key={target} className="flex items-start gap-2 text-sm text-slate-600">
-                  <CheckCircle2 size={18} className="mt-0.5 shrink-0 text-teal-600" />
+                  <CheckCircle2 size={18} className="mt-0.5 shrink-0 text-khaki-600" />
                   {target}
                 </li>
               ))}

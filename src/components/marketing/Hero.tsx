@@ -20,24 +20,24 @@ const SOCIAL_ICONS: Record<string, typeof InstagramIcon> = {
 
 export function Hero() {
   return (
-    <section className="relative overflow-hidden bg-gradient-to-b from-teal-50 via-white to-white">
+    <section className="relative overflow-hidden bg-gradient-to-b from-khaki-50 via-white to-white">
       <div
         aria-hidden
-        className="pointer-events-none absolute -right-24 -top-24 h-96 w-96 rounded-full bg-teal-100/60 blur-3xl"
+        className="pointer-events-none absolute -right-24 -top-24 h-96 w-96 rounded-full bg-khaki-100/60 blur-3xl"
       />
       <div
         aria-hidden
-        className="pointer-events-none absolute -left-32 top-40 h-80 w-80 rounded-full bg-teal-50 blur-3xl"
+        className="pointer-events-none absolute -left-32 top-40 h-80 w-80 rounded-full bg-khaki-50 blur-3xl"
       />
       <Container className="relative flex flex-col items-center gap-10 py-20 sm:py-28 lg:flex-row lg:items-center lg:justify-between">
         <div className="flex flex-col items-start gap-8">
-          <span className="rounded-full border border-teal-200 bg-white px-4 py-1.5 text-xs font-semibold tracking-wide text-teal-700">
+          <span className="rounded-full border border-khaki-200 bg-white px-4 py-1.5 text-xs font-semibold tracking-wide text-khaki-700">
             神奈川県・東京都 対応
           </span>
           <h1 className="max-w-2xl text-[1.75rem] font-black leading-tight tracking-tighter text-slate-900 sm:text-5xl sm:tracking-tight">
             <span className="block whitespace-nowrap">チームの怪我予防から</span>
             <span className="block whitespace-nowrap">パフォーマンスアップを、</span>
-            <span className="text-teal-700">専属トレーナー</span>で。
+            <span className="text-khaki-700">専属トレーナー</span>で。
           </h1>
           <p className="max-w-xl text-base leading-relaxed text-slate-600 sm:text-lg">
             スポーツチームサポート(トレーナー帯同)をメインに、整体施術・鍼灸施術(準備中)・パーソナルトレーニングまで渡邊 将人が一貫して提供します。年齢もレベルも問わず、あなたに合わせたコンディショニングを。
@@ -46,7 +46,7 @@ export function Hero() {
           <ul className="flex flex-col gap-2.5">
             {POINTS.map((point) => (
               <li key={point} className="flex items-center gap-2 text-sm text-slate-600">
-                <CheckCircle2 size={18} className="shrink-0 text-teal-600" />
+                <CheckCircle2 size={18} className="shrink-0 text-khaki-600" />
                 {point}
               </li>
             ))}
@@ -66,7 +66,7 @@ export function Hero() {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={social.name}
-                    className="flex h-11 w-11 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-500 transition-colors hover:border-teal-200 hover:text-teal-700"
+                    className="flex h-11 w-11 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-500 transition-colors hover:border-khaki-200 hover:text-khaki-700"
                   >
                     <Icon size={18} />
                   </a>

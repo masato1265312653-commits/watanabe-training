@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 export default function QaPage() {
   return (
     <div>
-      <section className="bg-teal-50/60 py-16">
+      <section className="bg-khaki-50/60 py-16">
         <Container>
           <SectionHeading
             eyebrow="Q&A"

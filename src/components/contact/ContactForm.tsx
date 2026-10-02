@@ -74,7 +74,7 @@ export function ContactForm() {
   if (step === "done") {
     return (
       <div className="flex flex-col items-center gap-4 rounded-2xl border border-slate-200 bg-white p-10 text-center">
-        <CheckCircle2 size={48} className="text-teal-600" />
+        <CheckCircle2 size={48} className="text-khaki-600" />
         <h2 className="text-lg font-bold text-slate-900">
           お問い合わせありがとうございました
         </h2>
@@ -173,8 +173,8 @@ export function ContactForm() {
               className={clsx(
                 "rounded-lg border px-4 py-2.5 text-left text-sm font-medium transition-colors",
                 form.inquiryType === option.value
-                  ? "border-teal-700 bg-teal-50/70 text-teal-800"
-                  : "border-slate-200 text-slate-600 hover:border-teal-200"
+                  ? "border-khaki-700 bg-khaki-50/70 text-khaki-800"
+                  : "border-slate-200 text-slate-600 hover:border-khaki-200"
               )}
             >
               {option.label}
@@ -189,7 +189,7 @@ export function ContactForm() {
           <select
             value={form.serviceSlug}
             onChange={(e) => setForm((f) => ({ ...f, serviceSlug: e.target.value }))}
-            className="rounded-lg border border-slate-200 px-3 py-2 text-sm focus:border-teal-600 focus:outline-none"
+            className="rounded-lg border border-slate-200 px-3 py-2 text-sm focus:border-khaki-600 focus:outline-none"
           >
             <option value="">選択してください</option>
             {services.map((service) => (
@@ -212,7 +212,7 @@ export function ContactForm() {
             value={form.name}
             onChange={(e) => setForm((f) => ({ ...f, name: e.target.value }))}
             placeholder="山田 太郎"
-            className="rounded-lg border border-slate-200 px-3 py-2 text-sm focus:border-teal-600 focus:outline-none"
+            className="rounded-lg border border-slate-200 px-3 py-2 text-sm focus:border-khaki-600 focus:outline-none"
           />
           {errors.name && <span className="text-xs text-red-500">{errors.name}</span>}
         </div>
@@ -222,7 +222,7 @@ export function ContactForm() {
             value={form.phone}
             onChange={(e) => setForm((f) => ({ ...f, phone: e.target.value }))}
             placeholder="090-1234-5678"
-            className="rounded-lg border border-slate-200 px-3 py-2 text-sm focus:border-teal-600 focus:outline-none"
+            className="rounded-lg border border-slate-200 px-3 py-2 text-sm focus:border-khaki-600 focus:outline-none"
           />
         </div>
         <div className="flex flex-col gap-1.5 sm:col-span-2">
@@ -231,7 +231,7 @@ export function ContactForm() {
             value={form.email}
             onChange={(e) => setForm((f) => ({ ...f, email: e.target.value }))}
             placeholder="you@example.com"
-            className="rounded-lg border border-slate-200 px-3 py-2 text-sm focus:border-teal-600 focus:outline-none"
+            className="rounded-lg border border-slate-200 px-3 py-2 text-sm focus:border-khaki-600 focus:outline-none"
           />
           {errors.email && <span className="text-xs text-red-500">{errors.email}</span>}
         </div>
@@ -248,7 +248,7 @@ export function ContactForm() {
                 ? "ご希望の時間帯(午前中・18時以降など)やご要望をご記入ください"
                 : "ご質問・ご相談内容をご記入ください"
             }
-            className="rounded-lg border border-slate-200 px-3 py-2 text-sm focus:border-teal-600 focus:outline-none"
+            className="rounded-lg border border-slate-200 px-3 py-2 text-sm focus:border-khaki-600 focus:outline-none"
           />
           {errors.message && <span className="text-xs text-red-500">{errors.message}</span>}
         </div>
@@ -262,10 +262,10 @@ export function ContactForm() {
               setAgreed(e.target.checked);
               if (e.target.checked) setAgreedError(null);
             }}
-            className="mt-0.5 h-4 w-4 shrink-0 rounded border-slate-300 text-teal-700 focus:ring-teal-600"
+            className="mt-0.5 h-4 w-4 shrink-0 rounded border-slate-300 text-khaki-700 focus:ring-khaki-600"
           />
           <span>
-            <a href="#privacy" className="text-teal-700 underline hover:no-underline">
+            <a href="#privacy" className="text-khaki-700 underline hover:no-underline">
               個人情報の取扱いについて
             </a>
             に同意する

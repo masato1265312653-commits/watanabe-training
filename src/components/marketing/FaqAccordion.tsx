@@ -7,13 +7,13 @@ export function FaqAccordion({ items }: { items: FaqItem[] }) {
       {items.map((item) => (
         <details
           key={item.question}
-          className="group rounded-2xl border border-slate-200 bg-white p-5 transition-colors hover:border-teal-200"
+          className="group rounded-2xl border border-slate-200 bg-white p-5 transition-colors hover:border-khaki-200"
         >
           <summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-sm font-semibold text-slate-900">
             {item.question}
             <ChevronDown
               size={18}
-              className="shrink-0 text-teal-700 transition-transform group-open:rotate-180"
+              className="shrink-0 text-khaki-700 transition-transform group-open:rotate-180"
             />
           </summary>
           <p className="mt-3 text-sm leading-relaxed text-slate-600">{item.answer}</p>

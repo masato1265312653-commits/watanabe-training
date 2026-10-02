@@ -54,7 +54,7 @@ export function Header() {
                 "text-sm font-medium transition-colors",
                 transparent
                   ? "text-white hover:text-white/80"
-                  : "text-slate-600 hover:text-teal-800"
+                  : "text-slate-600 hover:text-khaki-800"
               )}
             >
               {link.label}
@@ -74,7 +74,7 @@ export function Header() {
             "flex h-11 w-11 items-center justify-center rounded-full transition-colors duration-300 lg:hidden",
             transparent
               ? "border border-white/40 bg-white/15 text-white backdrop-blur-sm"
-              : "bg-teal-800 text-white"
+              : "bg-khaki-800 text-white"
           )}
           onClick={() => setOpen((v) => !v)}
           aria-label="メニューを開く"
@@ -91,7 +91,7 @@ export function Header() {
                 key={link.href}
                 href={link.href}
                 onClick={() => setOpen(false)}
-                className="rounded-lg px-3 py-2.5 text-base font-semibold text-slate-700 hover:bg-teal-50"
+                className="rounded-lg px-3 py-2.5 text-base font-semibold text-slate-700 hover:bg-khaki-50"
               >
                 {link.label}
               </Link>

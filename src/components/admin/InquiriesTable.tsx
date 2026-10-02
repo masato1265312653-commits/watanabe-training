@@ -57,7 +57,7 @@ export function InquiriesTable({ inquiries }: { inquiries: Inquiry[] }) {
             <div className="flex flex-wrap items-center justify-between gap-2">
               <div className="flex flex-wrap items-center gap-2">
                 {inquiry.inquiry_type === "reservation" && inquiry.preferred_date && (
-                  <span className="rounded-full bg-teal-50 px-2.5 py-1 text-xs font-semibold text-teal-700">
+                  <span className="rounded-full bg-khaki-50 px-2.5 py-1 text-xs font-semibold text-khaki-700">
                     実施希望日:{" "}
                     {new Date(`${inquiry.preferred_date}T00:00:00`).toLocaleDateString("ja-JP", {
                       month: "long",

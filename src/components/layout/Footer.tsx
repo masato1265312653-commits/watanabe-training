@@ -17,7 +17,7 @@ export function Footer() {
       <Container className="grid gap-10 py-14 sm:grid-cols-2 lg:grid-cols-4">
         <div className="flex flex-col gap-3">
           <div className="flex items-center gap-2">
-            <span className="flex h-9 w-9 items-center justify-center rounded-full bg-teal-700 text-sm font-bold text-white">
+            <span className="flex h-9 w-9 items-center justify-center rounded-full bg-khaki-700 text-sm font-bold text-white">
               渡
             </span>
             <span className="text-sm font-bold text-slate-900">渡邊 将人</span>
@@ -34,7 +34,7 @@ export function Footer() {
               <li key={s.slug}>
                 <Link
                   href={`/services/${s.slug}`}
-                  className="text-sm text-slate-500 hover:text-teal-700"
+                  className="text-sm text-slate-500 hover:text-khaki-700"
                 >
                   {s.name}
                   {s.comingSoon && <span className="ml-1 text-xs text-slate-400">(準備中)</span>}
@@ -48,22 +48,22 @@ export function Footer() {
           <h3 className="text-sm font-semibold text-slate-900">サイト内リンク</h3>
           <ul className="flex flex-col gap-2">
             <li>
-              <Link href="/profile" className="text-sm text-slate-500 hover:text-teal-700">
+              <Link href="/profile" className="text-sm text-slate-500 hover:text-khaki-700">
                 プロフィール
               </Link>
             </li>
             <li>
-              <Link href="/services" className="text-sm text-slate-500 hover:text-teal-700">
+              <Link href="/services" className="text-sm text-slate-500 hover:text-khaki-700">
                 料金
               </Link>
             </li>
             <li>
-              <Link href="/qa" className="text-sm text-slate-500 hover:text-teal-700">
+              <Link href="/qa" className="text-sm text-slate-500 hover:text-khaki-700">
                 Q&A
               </Link>
             </li>
             <li>
-              <Link href="/contact" className="text-sm text-slate-500 hover:text-teal-700">
+              <Link href="/contact" className="text-sm text-slate-500 hover:text-khaki-700">
                 お問い合わせ
               </Link>
             </li>
@@ -74,15 +74,15 @@ export function Footer() {
           <h3 className="text-sm font-semibold text-slate-900">お問い合わせ</h3>
           <ul className="flex flex-col gap-2.5 text-sm text-slate-500">
             <li className="flex items-center gap-2">
-              <MapPin size={16} className="shrink-0 text-teal-700" />
+              <MapPin size={16} className="shrink-0 text-khaki-700" />
               対応エリア: 神奈川県・東京都
             </li>
             <li className="flex items-center gap-2">
-              <Mail size={16} className="shrink-0 text-teal-700" />
+              <Mail size={16} className="shrink-0 text-khaki-700" />
               watanabe0503at@gmail.com
             </li>
             <li className="flex items-center gap-2">
-              <Phone size={16} className="shrink-0 text-teal-700" />
+              <Phone size={16} className="shrink-0 text-khaki-700" />
               070-1418-1812
             </li>
           </ul>
@@ -97,7 +97,7 @@ export function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={social.name}
-                  className="flex h-9 w-9 items-center justify-center rounded-full border border-slate-200 text-slate-500 transition-colors hover:border-teal-200 hover:text-teal-700"
+                  className="flex h-9 w-9 items-center justify-center rounded-full border border-slate-200 text-slate-500 transition-colors hover:border-khaki-200 hover:text-khaki-700"
                 >
                   <Icon size={16} />
                 </a>

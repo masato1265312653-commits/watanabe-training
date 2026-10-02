@@ -75,7 +75,7 @@ export default async function AdminPage() {
           <form action={logout}>
             <button
               type="submit"
-              className="text-sm font-medium text-slate-500 hover:text-teal-700"
+              className="text-sm font-medium text-slate-500 hover:text-khaki-700"
             >
               ログアウト
             </button>

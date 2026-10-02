@@ -9,6 +9,17 @@
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: "Hiragino Kaku Gothic ProN", "Hiragino Sans", var(--font-noto-sans-jp), var(--font-geist-sans), "Yu Gothic", sans-serif;
+
+  --color-khaki-50: #f3f9f4;
+  --color-khaki-100: #e1f0e3;
+  --color-khaki-200: #c3dfc8;
+  --color-khaki-300: #9fc9a7;
+  --color-khaki-400: #7cb286;
+  --color-khaki-500: #5f9969;
+  --color-khaki-600: #4c7f55;
+  --color-khaki-700: #406b48;
+  --color-khaki-800: #38593e;
+  --color-khaki-900: #2f4a34;
 }
 
 body {

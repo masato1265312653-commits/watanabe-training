@@ -44,7 +44,7 @@ export function SetupForm() {
         <input
           value={setupToken}
           onChange={(e) => setSetupToken(e.target.value)}
-          className="rounded-lg border border-slate-200 px-3 py-2 text-sm focus:border-teal-600 focus:outline-none"
+          className="rounded-lg border border-slate-200 px-3 py-2 text-sm focus:border-khaki-600 focus:outline-none"
           autoFocus
         />
         <span className="text-xs text-slate-400">
@@ -56,7 +56,7 @@ export function SetupForm() {
         <input
           value={username}
           onChange={(e) => setUsername(e.target.value)}
-          className="rounded-lg border border-slate-200 px-3 py-2 text-sm focus:border-teal-600 focus:outline-none"
+          className="rounded-lg border border-slate-200 px-3 py-2 text-sm focus:border-khaki-600 focus:outline-none"
         />
       </div>
       <div className="flex flex-col gap-1.5">
@@ -65,7 +65,7 @@ export function SetupForm() {
           type="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
-          className="rounded-lg border border-slate-200 px-3 py-2 text-sm focus:border-teal-600 focus:outline-none"
+          className="rounded-lg border border-slate-200 px-3 py-2 text-sm focus:border-khaki-600 focus:outline-none"
         />
       </div>
       <div className="flex flex-col gap-1.5">
@@ -74,7 +74,7 @@ export function SetupForm() {
           type="password"
           value={confirmPassword}
           onChange={(e) => setConfirmPassword(e.target.value)}
-          className="rounded-lg border border-slate-200 px-3 py-2 text-sm focus:border-teal-600 focus:outline-none"
+          className="rounded-lg border border-slate-200 px-3 py-2 text-sm focus:border-khaki-600 focus:outline-none"
         />
         {error && <span className="text-xs text-red-500">{error}</span>}
       </div>

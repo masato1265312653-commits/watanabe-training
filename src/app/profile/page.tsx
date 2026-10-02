@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 function EditorialHeading({ en, title }: { en: string; title: string }) {
   return (
     <div className="flex flex-col gap-2 border-b border-slate-200 pb-6 sm:flex-row sm:items-baseline sm:gap-6">
-      <h2 className="text-4xl font-black uppercase tracking-tight text-teal-800 sm:text-5xl">
+      <h2 className="text-4xl font-black uppercase tracking-tight text-khaki-800 sm:text-5xl">
         {en}
       </h2>
       <p className="text-lg font-bold text-slate-900 sm:text-xl">{title}</p>
@@ -77,11 +77,11 @@ export default function ProfilePage() {
           <Reveal delay={100}>
             <div className="flex flex-col gap-8 lg:flex-row lg:gap-16">
               {[profile.career.slice(0, 4), profile.career.slice(4)].map((group, i) => (
-                <ol key={i} className="relative flex flex-1 flex-col gap-6 border-l-2 border-teal-100 pl-6">
+                <ol key={i} className="relative flex flex-1 flex-col gap-6 border-l-2 border-khaki-100 pl-6">
                   {group.map((item) => (
                     <li key={`${item.year}-${item.event}`} className="relative">
-                      <span className="absolute top-1 -left-[1.95rem] h-3 w-3 rounded-full border-2 border-teal-600 bg-white" />
-                      <span className="block text-sm font-semibold text-teal-700">
+                      <span className="absolute top-1 -left-[1.95rem] h-3 w-3 rounded-full border-2 border-khaki-600 bg-white" />
+                      <span className="block text-sm font-semibold text-khaki-700">
                         {item.year}
                       </span>
                       <span className="text-sm text-slate-700">{item.event}</span>
@@ -106,7 +106,7 @@ export default function ProfilePage() {
                   key={q}
                   className="flex items-center gap-3 rounded-xl border border-slate-100 bg-white p-4 text-sm font-medium text-slate-700 shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-md"
                 >
-                  <Award size={20} className="shrink-0 text-teal-700" />
+                  <Award size={20} className="shrink-0 text-khaki-700" />
                   {q}
                 </li>
               ))}

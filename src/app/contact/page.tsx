@@ -23,7 +23,7 @@ export default function ContactPage() {
           />
           <ul className="flex flex-col gap-3 text-sm text-slate-600">
             <li className="flex items-center gap-2">
-              <Mail size={18} className="text-teal-700" />
+              <Mail size={18} className="text-khaki-700" />
               watanabe0503at@gmail.com
             </li>
             <li className="flex items-start gap-2 text-xs text-slate-400">
@@ -31,11 +31,11 @@ export default function ContactPage() {
               ※ 上記からご返信いたします。届かない場合は迷惑メールフォルダもご確認ください。
             </li>
             <li className="flex items-center gap-2">
-              <Phone size={18} className="text-teal-700" />
+              <Phone size={18} className="text-khaki-700" />
               070-1418-1812
             </li>
             <li className="flex items-center gap-2">
-              <MapPin size={18} className="text-teal-700" />
+              <MapPin size={18} className="text-khaki-700" />
               対応エリア: 神奈川県・東京都
             </li>
           </ul>

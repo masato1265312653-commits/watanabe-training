@@ -35,7 +35,7 @@ export function LoginForm() {
         <input
           value={username}
           onChange={(e) => setUsername(e.target.value)}
-          className="rounded-lg border border-slate-200 px-3 py-2 text-sm focus:border-teal-600 focus:outline-none"
+          className="rounded-lg border border-slate-200 px-3 py-2 text-sm focus:border-khaki-600 focus:outline-none"
           autoFocus
         />
       </div>
@@ -45,7 +45,7 @@ export function LoginForm() {
           type="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
-          className="rounded-lg border border-slate-200 px-3 py-2 text-sm focus:border-teal-600 focus:outline-none"
+          className="rounded-lg border border-slate-200 px-3 py-2 text-sm focus:border-khaki-600 focus:outline-none"
         />
         {error && <span className="text-xs text-red-500">{error}</span>}
       </div>
