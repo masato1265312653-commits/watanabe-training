@@ -70,10 +70,7 @@ export function Header() {
 
         <button
           type="button"
-          className={clsx(
-            "flex h-10 w-10 items-center justify-center rounded-lg lg:hidden",
-            transparent ? "text-white" : "text-slate-700"
-          )}
+          className="flex h-10 w-10 items-center justify-center rounded-lg text-slate-700 lg:hidden"
           onClick={() => setOpen((v) => !v)}
           aria-label="メニューを開く"
         >
@@ -82,35 +79,19 @@ export function Header() {
       </div>
 
       {open && (
-        <div
-          className={clsx(
-            "border-t lg:hidden",
-            transparent
-              ? "border-white/20 bg-black/40 backdrop-blur-sm"
-              : "border-slate-100 bg-white"
-          )}
-        >
+        <div className="border-t border-slate-100 bg-white lg:hidden">
           <Container className="flex flex-col gap-1 py-4">
             {NAV_LINKS.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
                 onClick={() => setOpen(false)}
-                className={clsx(
-                  "rounded-lg px-3 py-2.5 text-base font-semibold",
-                  transparent
-                    ? "text-white hover:bg-white/10"
-                    : "text-slate-700 hover:bg-teal-50"
-                )}
+                className="rounded-lg px-3 py-2.5 text-base font-semibold text-slate-700 hover:bg-teal-50"
               >
                 {link.label}
               </Link>
             ))}
-            <Button
-              href="/contact"
-              variant={transparent ? "outline" : "primary"}
-              className="mt-2 w-full"
-            >
+            <Button href="/contact" className="mt-2 w-full">
               お問い合わせ・予約
             </Button>
           </Container>
