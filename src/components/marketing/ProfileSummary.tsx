@@ -8,8 +8,8 @@ import { profile } from "@/lib/data/profile";
 
 export function ProfileSummary() {
   return (
-    <section className="-mt-16 bg-white">
-      <div className="relative h-[70vh] w-full overflow-hidden sm:h-[85vh] lg:h-screen">
+    <section className="-mt-16 bg-gradient-to-b from-teal-50/60 to-white">
+      <div className="relative h-screen w-full overflow-hidden">
         <Image
           src="/images/trainer-action.jpg"
           alt={profile.name}
@@ -20,11 +20,10 @@ export function ProfileSummary() {
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-black/40" />
         <div className="absolute inset-0 flex items-center justify-center px-6 text-center">
-          <h2 className="animate-[fade-up_0.9s_ease-out_0.3s_both] text-[1.6rem] font-black tracking-normal text-white [text-shadow:0_4px_24px_rgba(0,0,0,0.85),0_2px_6px_rgba(0,0,0,0.7)] sm:text-5xl sm:tracking-wide lg:text-6xl">
-            幅広く、深く。
-            <br className="sm:hidden" />
+          <h2 className="animate-[fade-up_0.9s_ease-out_0.3s_both] text-[2rem] font-black tracking-tight text-white [text-shadow:0_4px_24px_rgba(0,0,0,0.85),0_2px_6px_rgba(0,0,0,0.7)] sm:text-5xl sm:tracking-wide lg:text-6xl">
+            <span className="block sm:inline">幅広く、深く。</span>
             <span className="hidden sm:inline"> </span>
-            選手を支えるトレーナー
+            <span className="block sm:inline">選手を支えるトレーナー</span>
           </h2>
         </div>
         <div className="absolute inset-x-0 bottom-0 animate-[fade-up_0.9s_ease-out_0.5s_both] p-6 sm:p-10">
@@ -38,14 +37,14 @@ export function ProfileSummary() {
 
       <Container className="flex flex-col items-center gap-6 py-16">
         <Reveal>
-          <SectionHeading title="保有資格" />
+          <SectionHeading eyebrow="Qualification" title="保有資格" align="center" />
         </Reveal>
         <Reveal delay={100} className="w-full">
           <ul className="grid w-full gap-3 sm:grid-cols-2">
             {profile.qualifications.map((q) => (
               <li
                 key={q}
-                className="flex items-start gap-2 rounded-xl bg-teal-50/70 p-3 text-sm text-slate-700 transition-colors hover:bg-teal-50"
+                className="flex items-start gap-2 rounded-xl border border-slate-100 bg-white p-3 text-sm font-medium text-slate-700 shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-md"
               >
                 <Award size={18} className="mt-0.5 shrink-0 text-teal-700" />
                 {q}

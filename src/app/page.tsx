@@ -15,8 +15,16 @@ export default function Home() {
 
       <Hero />
 
-      <section className="bg-slate-50 py-20">
-        <Container className="flex flex-col gap-10">
+      <section className="relative overflow-hidden bg-slate-50 py-20">
+        <div
+          aria-hidden
+          className="pointer-events-none absolute -right-20 -top-20 h-80 w-80 rounded-full bg-teal-100/50 blur-3xl"
+        />
+        <div
+          aria-hidden
+          className="pointer-events-none absolute -left-24 bottom-0 h-72 w-72 rounded-full bg-teal-50 blur-3xl"
+        />
+        <Container className="relative flex flex-col gap-10">
           <Reveal>
             <SectionHeading
               eyebrow="Pricing"
@@ -30,8 +38,16 @@ export default function Home() {
         </Container>
       </section>
 
-      <section className="py-20">
-        <Container className="flex flex-col gap-10">
+      <section className="relative overflow-hidden py-20">
+        <div
+          aria-hidden
+          className="pointer-events-none absolute -left-20 top-0 h-72 w-72 rounded-full bg-teal-50 blur-3xl"
+        />
+        <div
+          aria-hidden
+          className="pointer-events-none absolute -right-24 bottom-0 h-80 w-80 rounded-full bg-teal-100/50 blur-3xl"
+        />
+        <Container className="relative flex flex-col gap-10">
           <Reveal>
             <SectionHeading
               eyebrow="Q&A"

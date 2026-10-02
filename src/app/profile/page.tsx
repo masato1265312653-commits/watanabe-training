@@ -15,8 +15,8 @@ export const metadata: Metadata = {
 export default function ProfilePage() {
   return (
     <div>
-      <section className="bg-teal-50/60">
-        <div className="relative h-64 w-full overflow-hidden sm:h-80 lg:h-[26rem]">
+      <section className="bg-white">
+        <div className="relative h-72 w-full overflow-hidden sm:h-96 lg:h-[28rem]">
           <Image
             src="/images/trainer-action.jpg"
             alt={profile.name}
@@ -25,28 +25,27 @@ export default function ProfilePage() {
             className="object-cover object-[center_70%]"
             priority
           />
-        </div>
-        <Container className="py-8">
-          <div className="flex flex-col items-center gap-2 text-center sm:items-start sm:text-left">
-            <h1 className="text-2xl font-bold text-slate-900 sm:text-3xl">
+          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
+          <div className="absolute inset-x-0 bottom-0 p-6 sm:p-10">
+            <h1 className="text-2xl font-bold text-white sm:text-3xl">
               {profile.name}
-              <span className="ml-2 text-base font-normal text-slate-500">
+              <span className="ml-2 text-base font-normal text-white/80">
                 /{profile.nameRomaji}
               </span>
             </h1>
-            <p className="text-teal-700 font-semibold">{profile.title}</p>
-            <p className="flex items-center justify-center gap-1.5 text-sm text-slate-500 sm:justify-start">
+            <p className="font-semibold text-white/90">{profile.title}</p>
+            <p className="mt-1 flex items-center gap-1.5 text-sm text-white/80">
               <MapPin size={16} />
               対応エリア: {profile.areas.join(" / ")}
             </p>
           </div>
-        </Container>
+        </div>
       </section>
 
       <section className="py-16">
         <Container className="flex flex-col gap-6">
           <Reveal>
-            <SectionHeading title={profile.story.title} />
+            <SectionHeading eyebrow="Story" title={profile.story.title} />
           </Reveal>
           <Reveal delay={100}>
             <div className="flex max-w-3xl flex-col gap-4 lg:max-w-6xl">
@@ -63,15 +62,16 @@ export default function ProfilePage() {
       <section className="border-t border-slate-100 py-16">
         <Container className="flex flex-col gap-6">
           <Reveal>
-            <SectionHeading title="経歴" />
+            <SectionHeading eyebrow="Career" title="経歴" />
           </Reveal>
           <Reveal delay={100}>
-            <div className="flex flex-col gap-4 lg:flex-row lg:gap-12">
+            <div className="flex flex-col gap-8 lg:flex-row lg:gap-16">
               {[profile.career.slice(0, 4), profile.career.slice(4)].map((group, i) => (
-                <ol key={i} className="flex flex-1 flex-col gap-4">
+                <ol key={i} className="relative flex flex-1 flex-col gap-6 border-l-2 border-teal-100 pl-6">
                   {group.map((item) => (
-                    <li key={`${item.year}-${item.event}`} className="flex items-baseline gap-4">
-                      <span className="w-16 shrink-0 text-sm font-semibold text-teal-700">
+                    <li key={`${item.year}-${item.event}`} className="relative">
+                      <span className="absolute top-1 -left-[1.95rem] h-3 w-3 rounded-full border-2 border-teal-600 bg-white" />
+                      <span className="block text-sm font-semibold text-teal-700">
                         {item.year}
                       </span>
                       <span className="text-sm text-slate-700">{item.event}</span>
@@ -87,14 +87,14 @@ export default function ProfilePage() {
       <section className="bg-slate-50 py-16">
         <Container className="flex flex-col gap-4">
           <Reveal>
-            <SectionHeading title="保有資格" />
+            <SectionHeading eyebrow="Qualification" title="保有資格" />
           </Reveal>
           <Reveal delay={100}>
-            <ul className="grid gap-3 sm:grid-cols-2">
+            <ul className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
               {profile.qualifications.map((q) => (
                 <li
                   key={q}
-                  className="flex items-center gap-3 rounded-xl bg-white p-4 text-sm text-slate-700 shadow-sm transition-shadow hover:shadow-md"
+                  className="flex items-center gap-3 rounded-xl border border-slate-100 bg-white p-4 text-sm font-medium text-slate-700 shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-md"
                 >
                   <Award size={20} className="shrink-0 text-teal-700" />
                   {q}

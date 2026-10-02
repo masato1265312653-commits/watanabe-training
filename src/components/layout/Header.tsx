@@ -21,19 +21,19 @@ export function Header() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
-  const isHome = pathname === "/";
+  const hasHeroPhoto = pathname === "/";
 
   useEffect(() => {
-    if (!isHome) return;
+    if (!hasHeroPhoto) return;
     function onScroll() {
       setScrolled(window.scrollY > 40);
     }
     onScroll();
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
-  }, [isHome]);
+  }, [hasHeroPhoto]);
 
-  const transparent = isHome && !scrolled;
+  const transparent = hasHeroPhoto && !scrolled;
 
   return (
     <header
@@ -70,7 +70,7 @@ export function Header() {
 
         <button
           type="button"
-          className="flex h-10 w-10 items-center justify-center rounded-lg text-slate-700 lg:hidden"
+          className="flex h-10 w-10 items-center justify-center rounded-lg text-slate-700 drop-shadow-[0_1px_3px_rgba(255,255,255,0.9)] lg:hidden"
           onClick={() => setOpen((v) => !v)}
           aria-label="メニューを開く"
         >
