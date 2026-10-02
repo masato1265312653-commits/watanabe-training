@@ -20,16 +20,8 @@ const SOCIAL_ICONS: Record<string, typeof InstagramIcon> = {
 
 export function Hero() {
   return (
-    <section className="relative overflow-hidden bg-gradient-to-b from-khaki-100 via-khaki-50/70 to-white">
-      <div
-        aria-hidden
-        className="pointer-events-none absolute -right-24 -top-24 h-96 w-96 rounded-full bg-khaki-200/70 blur-3xl"
-      />
-      <div
-        aria-hidden
-        className="pointer-events-none absolute -left-32 top-40 h-80 w-80 rounded-full bg-khaki-100 blur-3xl"
-      />
-      <Container className="relative flex flex-col items-center gap-10 py-20 sm:py-28 lg:flex-row lg:items-center lg:justify-between">
+    <section className="bg-slate-50">
+      <Container className="flex flex-col items-center gap-10 py-20 sm:py-28 lg:flex-row lg:items-center lg:justify-between">
         <div className="flex flex-col items-start gap-8">
           <span className="rounded-full border border-khaki-200 bg-white px-4 py-1.5 text-xs font-semibold tracking-wide text-khaki-700">
             神奈川県・東京都 対応

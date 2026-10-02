@@ -8,7 +8,7 @@ import { profile } from "@/lib/data/profile";
 
 export function ProfileSummary() {
   return (
-    <section className="-mt-16 bg-gradient-to-b from-khaki-50/60 via-white to-khaki-50">
+    <section className="-mt-16 bg-white">
       <div className="relative h-screen w-full overflow-hidden">
         <Image
           src="/images/trainer-action.jpg"
