@@ -69,7 +69,7 @@ export function PricingTable() {
 
               {service.comingSoon ? (
                 <Button className="pointer-events-auto relative w-full" disabled>
-                  準備中(2027年4月 提供開始予定)
+                  準備中(2027年 提供開始予定)
                 </Button>
               ) : (
                 <Button

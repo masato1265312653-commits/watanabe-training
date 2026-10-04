@@ -57,7 +57,7 @@ export function ServiceDetailTemplate({ service }: { service: Service }) {
             <div>
               {service.comingSoon ? (
                 <Button size="lg" disabled>
-                  準備中(2027年4月 提供開始予定)
+                  準備中(2027年 提供開始予定)
                 </Button>
               ) : (
                 <Button href={`/contact?service=${service.slug}`} size="lg">
@@ -114,7 +114,7 @@ export function ServiceDetailTemplate({ service }: { service: Service }) {
           <SectionHeading title="料金" />
           {service.comingSoon ? (
             <div className="rounded-2xl border border-slate-200 bg-slate-50 px-6 py-8 text-center text-sm text-slate-500">
-              現在準備中のため、料金は未定です。2027年4月の鍼灸師資格取得後、提供を開始する予定です。
+              現在準備中のため、料金は未定です。2027年の鍼灸師資格取得後、提供を開始する予定です。
             </div>
           ) : (
             <>

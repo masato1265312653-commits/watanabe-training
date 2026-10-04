@@ -108,9 +108,8 @@ export function Footer() {
       </Container>
 
       <div className="border-t border-slate-200 py-5">
-        <Container className="flex flex-col items-center justify-between gap-2 text-xs text-slate-400 sm:flex-row">
+        <Container className="text-xs text-slate-400">
           <p>&copy; {new Date().getFullYear()} Masato Watanabe. All rights reserved.</p>
-          <p>本サイトはフロントエンド開発中のプレビュー版です。</p>
         </Container>
       </div>
     </footer>
